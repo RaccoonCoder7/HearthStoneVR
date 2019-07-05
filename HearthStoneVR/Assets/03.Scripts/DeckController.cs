@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class DeckController : MonoBehaviour
 {
-    public GameObject handCards;
-    private Transform[] cardDeck;
+    private Transform handCards1;
+    public Transform[] ShuffleDeck1;
+    private Transform handCards2;
+    public Transform[] ShuffleDeck2;
     // Start is called before the first frame update
     void Start()
     {
-        cardDeck = handCards.GetComponentsInChildren<Transform>();
-        ShuffleArray(cardDeck);
-        for (int i = 1; i < 6; ++i)
+        handCards1 = GameObject.Find("HandCanvas/HandCards").GetComponent<Transform>();
+        handCards2 = GameObject.Find("HandCanvas2/HandCards").GetComponent<Transform>();
+        ShuffleArray(ShuffleDeck1);
+        ShuffleArray(ShuffleDeck2);
+        for (int i = 0; i < 5; ++i)
         {
-            Debug.Log(cardDeck[i].gameObject.name);
-            Vector3 cardPos = cardDeck[i].gameObject.transform.position;
-            cardPos = new Vector3(cardPos.x, cardPos.y + 1, cardPos.z);
+            ShuffleDeck1[i].gameObject.transform.SetParent(handCards1);
+            ShuffleDeck2[i].gameObject.transform.SetParent(handCards2);
+            ShuffleDeck1[i].gameObject.transform.position = new Vector3(0, 17.27f, -10.83f);
+            ShuffleDeck2[i].gameObject.transform.position = new Vector3(0, 17.27f, 15.58f);
+            ShuffleDeck1[i].gameObject.transform.rotation = Quaternion.Euler(40, 0, 0);
+            ShuffleDeck2[i].gameObject.transform.rotation = Quaternion.Euler(40, 180, 0);
         }
     }
 
@@ -32,7 +39,7 @@ public class DeckController : MonoBehaviour
 
         T tmp;
 
-        for (int index = 1; index < cardDeck.Length; ++index)
+        for (int index = 0; index < cardDeck.Length; ++index)
         {
             random1 = UnityEngine.Random.Range(0, cardDeck.Length);
             random2 = UnityEngine.Random.Range(0, cardDeck.Length);
