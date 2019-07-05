@@ -43,10 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8e42be9ec8e2b499da1dbea2ab8426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShuffleDeck:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  ShuffleDeck1: []
+  ShuffleDeck2: []

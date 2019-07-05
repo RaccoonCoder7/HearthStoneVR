@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class DeckController : MonoBehaviour
 {
-    private Transform handCards1;
+    [HideInInspector]
+    public Transform handCards1;
     public Transform[] ShuffleDeck1;
-    private Transform handCards2;
+    [HideInInspector]
+    public Transform handCards2;
     public Transform[] ShuffleDeck2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +20,7 @@ public class DeckController : MonoBehaviour
         ShuffleArray(ShuffleDeck2);
         for (int i = 0; i < 5; ++i)
         {
-            ShuffleDeck1[i].gameObject.transform.SetParent(handCards1);
-            ShuffleDeck2[i].gameObject.transform.SetParent(handCards2);
-            ShuffleDeck1[i].gameObject.transform.position = new Vector3(0, 17.27f, -10.83f);
-            ShuffleDeck2[i].gameObject.transform.position = new Vector3(0, 17.27f, 15.58f);
-            ShuffleDeck1[i].gameObject.transform.rotation = Quaternion.Euler(40, 0, 0);
-            ShuffleDeck2[i].gameObject.transform.rotation = Quaternion.Euler(40, 180, 0);
+            CardSet(ShuffleDeck1[i].gameObject.transform, ShuffleDeck2[i].gameObject.transform);
         }
     }
 
@@ -30,6 +28,30 @@ public class DeckController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CardSet(Transform deck1, Transform deck2)
+    {
+        deck1.SetParent(handCards1);
+        deck2.SetParent(handCards2);
+        deck1.position = new Vector3(0, 17.27f, -10.83f);
+        deck2.position = new Vector3(0, 17.27f, 15.58f);
+        deck1.rotation = Quaternion.Euler(40, 0, 0);
+        deck2.rotation = Quaternion.Euler(40, 180, 0);
+    }
+
+    public void CardSet1(Transform deck1)
+    {
+        deck1.SetParent(handCards1);
+        deck1.position = new Vector3(0, 17.27f, -10.83f);
+        deck1.rotation = Quaternion.Euler(40, 0, 0);
+    }
+
+    public void CardSet2(Transform deck2)
+    {
+        deck2.SetParent(handCards2);
+        deck2.position = new Vector3(0, 17.27f, 15.58f);
+        deck2.rotation = Quaternion.Euler(40, 180, 0);
     }
 
     private void ShuffleArray<T>(T[] cardDeck)
