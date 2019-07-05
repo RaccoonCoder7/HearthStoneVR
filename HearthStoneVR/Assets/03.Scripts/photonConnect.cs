@@ -11,7 +11,8 @@ public class photonConnect : Photon.PunBehaviour
     public byte maxPlayersPerRoom = 2;
     public GameObject canvas;
     public Image img;
-    public static GameObject localPlayer;
+    public static GameObject Player1;
+    public static GameObject Player2;
 
     public Text Information;
     public GameObject JoinGameBT;
@@ -73,13 +74,17 @@ public class photonConnect : Photon.PunBehaviour
         Debug.Log("now, You are in GAME!");
         if (PhotonNetwork.isMasterClient)
         {
-            localPlayer = PhotonNetwork.Instantiate(
-            "Player1", new Vector3(0, 18, 0), Quaternion.identity, 0);
+            Player1 = PhotonNetwork.Instantiate(
+            "OVRCameraRig", new Vector3(0, 26.55235f, -13.89566f), Quaternion.identity, 0);
+            Player2 = PhotonNetwork.Instantiate(
+            "Player2", new Vector3(0, 0, 22.1f), Quaternion.identity, 0);
         }
         else
         {
-            localPlayer = PhotonNetwork.Instantiate(
-            "Player2", new Vector3(0, 22, 0), Quaternion.identity, 0);
+            Player1 = PhotonNetwork.Instantiate(
+            "OVRCameraRig", new Vector3(0, 26.5523f,22), Quaternion.identity, 0);
+            Player2 = PhotonNetwork.Instantiate(
+           "Player2", new Vector3(7.8809e-06f, 0, -17), Quaternion.identity, 0);
         }
 
 
