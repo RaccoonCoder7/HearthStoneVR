@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8181652347769065056}
   - component: {fileID: 8210872670385625716}
   - component: {fileID: 8201187978284937896}
-  - component: {fileID: 8161857921868622874}
   - component: {fileID: 8170623528300744042}
   m_Layer: 0
   m_Name: bee
@@ -27,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8179081349195108044}
-  m_LocalRotation: {x: 0.9235321, y: 0.014410249, z: 0.023157027, w: -0.3825499}
+  m_LocalRotation: {x: 0.92353064, y: 0.014408453, z: 0.023157164, w: -0.3825537}
   m_LocalPosition: {x: 1.381, y: 0.2159998, z: 0.2509998}
-  m_LocalScale: {x: 25.512497, y: 25.512497, z: 25.512497}
+  m_LocalScale: {x: 253.00073, y: 253.00055, z: 253.00024}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8179081349195108044}
-  m_Mesh: {fileID: 4300000, guid: ab9e24e14f0b1400aa074527c8c3b4ee, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 4f803063152399f43878f32a2ede733c, type: 3}
 --- !u!23 &8201187978284937896
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59,8 +58,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9c04b9fedf436f642af6cdc2c61ded66, type: 2}
-  - {fileID: 2100000, guid: 4dd55f74e29d2954986b3f763f1aeb96, type: 2}
+  - {fileID: 2100000, guid: 57cc20e6d83b24f4a9d45efeb7bca14f, type: 2}
+  - {fileID: 2100000, guid: 18b56fb244f9c2149ab9713985f7074c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,22 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &8161857921868622874
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8179081349195108044}
-  serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!65 &8170623528300744042
 BoxCollider:
   m_ObjectHideFlags: 0
