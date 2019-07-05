@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9203647509133985786}
   - component: {fileID: 9205389399714386926}
   - component: {fileID: 9215073818567228210}
-  - component: {fileID: 9184602546436367744}
   - component: {fileID: 9174148125051553008}
   m_Layer: 0
   m_Name: bat
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9201719306262349654}
   m_LocalRotation: {x: 0.92291546, y: 0.036653925, z: 0.03236691, w: -0.38188475}
   m_LocalPosition: {x: 1.794, y: 0.23999971, z: 0.29399997}
-  m_LocalScale: {x: 252.84698, y: 252.84698, z: 252.84698}
+  m_LocalScale: {x: 253.00073, y: 253.00055, z: 253.00024}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,22 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &9184602546436367744
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9201719306262349654}
-  serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!65 &9174148125051553008
 BoxCollider:
   m_ObjectHideFlags: 0
