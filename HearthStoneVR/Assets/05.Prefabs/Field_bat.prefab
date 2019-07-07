@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 820533787508424905}
   - component: {fileID: 820533787508424904}
   - component: {fileID: 820533787508424907}
-  m_Layer: 5
+  - component: {fileID: 1559895138221400831}
+  m_Layer: 10
   m_Name: Field_bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,6 +89,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!65 &1559895138221400831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820533787508424909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.477438, y: 7.5045614, z: 0.41216627}
+  m_Center: {x: 0.007142544, y: 1.2324791, z: -0.017759904}
 --- !u!1 &820533787672109159
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +221,7 @@ BoxCollider:
   m_GameObject: {fileID: 8417242913717979848}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.014215222, y: 0.000108975364, z: 0.019198282}
   m_Center: {x: 6.984921e-10, y: -1.4551915e-10, z: 0.009701044}

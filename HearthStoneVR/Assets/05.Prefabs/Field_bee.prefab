@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 2959591686142157161}
   - component: {fileID: 2959591686142157162}
   - component: {fileID: 2959591686142157163}
-  m_Layer: 5
+  - component: {fileID: 125048279617512849}
+  m_Layer: 10
   m_Name: Field_bee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,6 +120,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!65 &125048279617512849
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2959591686142157165}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.5499554, y: 7.4155035, z: 0.51648986}
+  m_Center: {x: -0.010352612, y: 1.2018933, z: -0.044625998}
 --- !u!1001 &8825035965800170657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,6 +214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 380
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170623528300744042, guid: 3ba8293232345444ba16f4a591825dba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba8293232345444ba16f4a591825dba, type: 3}

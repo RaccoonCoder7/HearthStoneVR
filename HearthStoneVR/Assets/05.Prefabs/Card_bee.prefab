@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6511413032781152296}
   - component: {fileID: 6511413032781152299}
   - component: {fileID: 6511413032781152298}
-  m_Layer: 5
+  - component: {fileID: 6024654450647750479}
+  m_Layer: 9
   m_Name: Card_bee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,6 +89,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!65 &6024654450647750479
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511413032781152300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.611725, y: 5.0217905, z: 0.4070495}
+  m_Center: {x: -0.00024735928, y: 0.04055214, z: 0.015841588}
 --- !u!1 &6511413033477533371
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +198,11 @@ PrefabInstance:
     - target: {fileID: 8181652347769065056, guid: 3ba8293232345444ba16f4a591825dba,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170623528300744042, guid: 3ba8293232345444ba16f4a591825dba,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
