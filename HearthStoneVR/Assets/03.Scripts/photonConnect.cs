@@ -13,6 +13,7 @@ public class photonConnect : Photon.PunBehaviour
     public Image img;
     public static GameObject Player;
     public static GameObject PlayerModel;
+    public static GameObject PlayerCtrl;
 
     public Text Information;
     public GameObject JoinGameBT;
@@ -45,7 +46,7 @@ public class photonConnect : Photon.PunBehaviour
     public void JoinGameRoom()
     {
         canvas.SetActive(true);
-        
+
         StartCoroutine("FadeIn");
     }
 
@@ -54,7 +55,7 @@ public class photonConnect : Photon.PunBehaviour
     public override void OnJoinedRoom()
     {
         Debug.Log("You are Joined Room!");
-        
+
 
         if (PhotonNetwork.isMasterClient)
         {
@@ -77,18 +78,19 @@ public class photonConnect : Photon.PunBehaviour
             Player = PhotonNetwork.Instantiate(
             "OVRCameraRig", new Vector3(0, 26.55235f, -13.89566f), Quaternion.identity, 0);
             PlayerModel = PhotonNetwork.Instantiate(
-            "Player1", new Vector3(0, 0, 22.1f), Quaternion.Euler(0, 180, 0), 0);
+            "Player2", new Vector3(7.8809e-06f, 0, -17), Quaternion.Euler(0, 0, 0), 0);
+            PlayerCtrl = PhotonNetwork.Instantiate(
+            "Player2Ctrl", new Vector3(0, 0, 0), Quaternion.identity, 0);
         }
         else
         {
             Player = PhotonNetwork.Instantiate(
             "OVRCameraRig2", new Vector3(0, 26.946f, 18.412f), Quaternion.Euler(0, 180, 0), 0);
             PlayerModel = PhotonNetwork.Instantiate(
-            "Player2", new Vector3(7.8809e-06f, 0, -17), Quaternion.Euler(0, 0, 0), 0);
+            "Player1", new Vector3(0, 0, 22.1f), Quaternion.Euler(0, 180, 0), 0);
+            PlayerCtrl = PhotonNetwork.Instantiate(
+            "Player1Ctrl", new Vector3(0, 0, 0), Quaternion.identity, 0);
         }
-
-
-
     }
 
     IEnumerator FadeIn()
