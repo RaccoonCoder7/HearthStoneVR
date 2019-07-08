@@ -187,7 +187,7 @@ public class GameTouchMgr : Photon.PunBehaviour
                     int count = 0;
                     for (int i = 0; i < child.Length; i++)
                     {
-                        if (child[i].gameObject.layer == LayerMask.NameToLayer("HANDCARD"))
+                        if (child[i].gameObject.layer == layerHandCard)
                         {
                             nowDeck[count] = child[i];
                             count++;
@@ -197,7 +197,7 @@ public class GameTouchMgr : Photon.PunBehaviour
                     count = 0;
                     for (int i = 0; i < child2.Length; i++)
                     {
-                        if (child2[i].gameObject.layer == LayerMask.NameToLayer("HANDCARD"))
+                        if (child2[i].gameObject.layer == layerHandCard)
                         {
                             nowDeck2[count] = child2[i];
                             count++;
