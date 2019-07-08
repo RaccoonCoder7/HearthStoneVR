@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5207027562849883834}
+  - component: {fileID: 4785373765948490958}
   m_Layer: 0
   m_Name: Deck
   m_TagString: Untagged
@@ -36,6 +37,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
+--- !u!65 &4785373765948490958
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207027562849883835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.42019, y: 5.951991, z: 1}
+  m_Center: {x: 10.089027, y: -2.4759955, z: 0}
 --- !u!1001 &5207027561328826705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47,6 +61,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Card_bat2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295707810296913704, guid: fe253b052c819b548bfa37d1d680f115,
+        type: 3}
+      propertyPath: m_TagString
+      value: BAT
       objectReference: {fileID: 0}
     - target: {fileID: 3295707810296913711, guid: fe253b052c819b548bfa37d1d680f115,
         type: 3}
@@ -173,6 +192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card_bat1
       objectReference: {fileID: 0}
+    - target: {fileID: 3295707810296913704, guid: fe253b052c819b548bfa37d1d680f115,
+        type: 3}
+      propertyPath: m_TagString
+      value: BAT
+      objectReference: {fileID: 0}
     - target: {fileID: 3295707810296913711, guid: fe253b052c819b548bfa37d1d680f115,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -298,6 +322,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card_bat3
       objectReference: {fileID: 0}
+    - target: {fileID: 3295707810296913704, guid: fe253b052c819b548bfa37d1d680f115,
+        type: 3}
+      propertyPath: m_TagString
+      value: BAT
+      objectReference: {fileID: 0}
     - target: {fileID: 3295707810296913711, guid: fe253b052c819b548bfa37d1d680f115,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -418,11 +447,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5207027562849883834}
     m_Modifications:
-    - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
-        type: 3}
-      propertyPath: m_Name
-      value: Card_bee3
-      objectReference: {fileID: 0}
     - target: {fileID: 6511413032781152301, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -528,6 +552,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
+        type: 3}
+      propertyPath: m_Name
+      value: Card_bee3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: BEE
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc5dd5f97e2480346b5ef6e5c02316fd, type: 3}
 --- !u!224 &1305547313060191147 stripped
@@ -543,11 +577,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5207027562849883834}
     m_Modifications:
-    - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
-        type: 3}
-      propertyPath: m_Name
-      value: Card_bee1
-      objectReference: {fileID: 0}
     - target: {fileID: 6511413032781152301, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -653,6 +682,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
+        type: 3}
+      propertyPath: m_Name
+      value: Card_bee1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: BEE
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc5dd5f97e2480346b5ef6e5c02316fd, type: 3}
 --- !u!224 &1305547313704618469 stripped
@@ -668,11 +707,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5207027562849883834}
     m_Modifications:
-    - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
-        type: 3}
-      propertyPath: m_Name
-      value: Card_bee2
-      objectReference: {fileID: 0}
     - target: {fileID: 6511413032781152301, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -777,6 +811,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
+        type: 3}
+      propertyPath: m_Name
+      value: Card_bee2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: BEE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc5dd5f97e2480346b5ef6e5c02316fd, type: 3}

@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f722029c792bc4788d67e5d9731dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myHandCanvas: {fileID: 0}
+  InfoCard: {fileID: 0}

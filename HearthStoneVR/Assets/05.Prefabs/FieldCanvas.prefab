@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -207,11 +207,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 482378069237693374}
     m_Modifications:
-    - target: {fileID: 820533787508424909, guid: 75b28a4d83970f84c9128944ef98c4c6,
-        type: 3}
-      propertyPath: m_Name
-      value: Field_bat
-      objectReference: {fileID: 0}
     - target: {fileID: 820533787508424906, guid: 75b28a4d83970f84c9128944ef98c4c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -316,6 +311,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 820533787508424909, guid: 75b28a4d83970f84c9128944ef98c4c6,
+        type: 3}
+      propertyPath: m_Name
+      value: Field_bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 820533787508424909, guid: 75b28a4d83970f84c9128944ef98c4c6,
+        type: 3}
+      propertyPath: m_TagString
+      value: BAT
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b28a4d83970f84c9128944ef98c4c6, type: 3}
@@ -332,11 +337,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 482378069237693374}
     m_Modifications:
-    - target: {fileID: 2959591686142157165, guid: 4ef5516b46e676a4aa1c208bed18826b,
-        type: 3}
-      propertyPath: m_Name
-      value: Field_bee
-      objectReference: {fileID: 0}
     - target: {fileID: 2959591686142157164, guid: 4ef5516b46e676a4aa1c208bed18826b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -441,6 +441,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959591686142157165, guid: 4ef5516b46e676a4aa1c208bed18826b,
+        type: 3}
+      propertyPath: m_Name
+      value: Field_bee
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959591686142157165, guid: 4ef5516b46e676a4aa1c208bed18826b,
+        type: 3}
+      propertyPath: m_TagString
+      value: BEE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ef5516b46e676a4aa1c208bed18826b, type: 3}
