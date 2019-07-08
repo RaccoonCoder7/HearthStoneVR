@@ -91,7 +91,6 @@ public class GameTouchMgr : MonoBehaviour
         }
         if(Input.GetMouseButtonUp(0)){
             ray = cam.ScreenPointToRay(Input.mousePosition);
-            // Debug.DrawRay(ray.origin, ray.direction * 100.0f, Color.green);
             if(Physics.Raycast(ray, out hit, 100.0f)){
                 int layer = hit.transform.gameObject.layer;
                 bool toMaximize = false;
