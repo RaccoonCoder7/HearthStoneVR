@@ -1494,6 +1494,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: photonManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5315071003392624250, guid: 31842adb702b5cf479e23ab446c84331,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 929355362}
+    - target: {fileID: 5315071003392624250, guid: 31842adb702b5cf479e23ab446c84331,
+        type: 3}
+      propertyPath: img
+      value: 
+      objectReference: {fileID: 1782662862}
+    - target: {fileID: 5315071003392624250, guid: 31842adb702b5cf479e23ab446c84331,
+        type: 3}
+      propertyPath: Information
+      value: 
+      objectReference: {fileID: 536207836}
+    - target: {fileID: 5315071003392624250, guid: 31842adb702b5cf479e23ab446c84331,
+        type: 3}
+      propertyPath: JoinGameBT
+      value: 
+      objectReference: {fileID: 418831145}
     - target: {fileID: 5315071003392624249, guid: 31842adb702b5cf479e23ab446c84331,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1549,25 +1569,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5315071003392624250, guid: 31842adb702b5cf479e23ab446c84331,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 929355362}
-    - target: {fileID: 5315071003392624250, guid: 31842adb702b5cf479e23ab446c84331,
-        type: 3}
-      propertyPath: img
-      value: 
-      objectReference: {fileID: 1782662862}
-    - target: {fileID: 5315071003392624250, guid: 31842adb702b5cf479e23ab446c84331,
-        type: 3}
-      propertyPath: Information
-      value: 
-      objectReference: {fileID: 536207836}
-    - target: {fileID: 5315071003392624250, guid: 31842adb702b5cf479e23ab446c84331,
-        type: 3}
-      propertyPath: JoinGameBT
-      value: 
-      objectReference: {fileID: 418831145}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31842adb702b5cf479e23ab446c84331, type: 3}
