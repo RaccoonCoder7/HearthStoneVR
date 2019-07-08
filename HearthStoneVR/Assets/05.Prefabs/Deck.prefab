@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 3295707810296913704, guid: fe253b052c819b548bfa37d1d680f115,
         type: 3}
       propertyPath: m_TagString
-      value: BAT
+      value: CARD
       objectReference: {fileID: 0}
     - target: {fileID: 3295707810296913711, guid: fe253b052c819b548bfa37d1d680f115,
         type: 3}
@@ -195,7 +195,7 @@ PrefabInstance:
     - target: {fileID: 3295707810296913704, guid: fe253b052c819b548bfa37d1d680f115,
         type: 3}
       propertyPath: m_TagString
-      value: BAT
+      value: CARD
       objectReference: {fileID: 0}
     - target: {fileID: 3295707810296913711, guid: fe253b052c819b548bfa37d1d680f115,
         type: 3}
@@ -325,7 +325,7 @@ PrefabInstance:
     - target: {fileID: 3295707810296913704, guid: fe253b052c819b548bfa37d1d680f115,
         type: 3}
       propertyPath: m_TagString
-      value: BAT
+      value: CARD
       objectReference: {fileID: 0}
     - target: {fileID: 3295707810296913711, guid: fe253b052c819b548bfa37d1d680f115,
         type: 3}
@@ -455,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
         type: 3}
       propertyPath: m_TagString
-      value: BEE
+      value: CARD
       objectReference: {fileID: 0}
     - target: {fileID: 6511413032781152301, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
         type: 3}
@@ -585,7 +585,7 @@ PrefabInstance:
     - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
         type: 3}
       propertyPath: m_TagString
-      value: BEE
+      value: CARD
       objectReference: {fileID: 0}
     - target: {fileID: 6511413032781152301, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
         type: 3}
@@ -715,7 +715,7 @@ PrefabInstance:
     - target: {fileID: 6511413032781152300, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
         type: 3}
       propertyPath: m_TagString
-      value: BEE
+      value: CARD
       objectReference: {fileID: 0}
     - target: {fileID: 6511413032781152301, guid: fc5dd5f97e2480346b5ef6e5c02316fd,
         type: 3}

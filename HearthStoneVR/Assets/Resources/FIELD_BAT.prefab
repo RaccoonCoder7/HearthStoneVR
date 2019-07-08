@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 820533787508424907}
   - component: {fileID: 1559895138221400831}
   m_Layer: 10
-  m_Name: Field_bat
-  m_TagString: Untagged
+  m_Name: FIELD_BAT
+  m_TagString: BAT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +100,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.477438, y: 7.5045614, z: 0.41216627}
-  m_Center: {x: 0.007142544, y: 1.2324791, z: -0.017759904}
+  m_Size: {x: 5.477438, y: 7.5045614, z: 1.2002223}
+  m_Center: {x: 0.007142544, y: 1.2324791, z: -0.41178787}
 --- !u!1 &820533787672109159
 GameObject:
   m_ObjectHideFlags: 0

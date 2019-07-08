@@ -43,5 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8e42be9ec8e2b499da1dbea2ab8426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShuffleDeck1: []
-  ShuffleDeck2: []
+  handCards1: {fileID: 0}
+  ShuffleDeck1:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  handCards2: {fileID: 0}
+  ShuffleDeck2:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

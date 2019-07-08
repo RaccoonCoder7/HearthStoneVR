@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 2959591686142157163}
   - component: {fileID: 125048279617512849}
   m_Layer: 10
-  m_Name: Field_bee
-  m_TagString: Untagged
+  m_Name: FIELD_BEE
+  m_TagString: BEE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,8 +131,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.5499554, y: 7.4155035, z: 0.51648986}
-  m_Center: {x: -0.010352612, y: 1.2018933, z: -0.044625998}
+  m_Size: {x: 5.5499554, y: 7.4155035, z: 1.339}
+  m_Center: {x: -0.010352612, y: 1.2018933, z: -0.455881}
 --- !u!1001 &8825035965800170657
 PrefabInstance:
   m_ObjectHideFlags: 0

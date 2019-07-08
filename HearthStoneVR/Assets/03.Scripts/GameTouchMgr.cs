@@ -12,10 +12,12 @@ public class GameTouchMgr : Photon.PunBehaviour
     private int layerHandCard;
     private int layerTurn;
     private int layerHandCanvas;
+    private int layerField;
     private BoxCollider boxCol;
     private Vector3 originalPos;
     private Renderer infoRend;
     private Material cardBack;
+    private GameObject nowDragging;
     public GameObject myHandCanvas;
     public GameObject InfoCard;
 
@@ -36,6 +38,8 @@ public class GameTouchMgr : Photon.PunBehaviour
         layerFieldCard = LayerMask.NameToLayer("FIELDCARD");
         layerTurn = LayerMask.NameToLayer("TURN");
         layerHandCanvas = LayerMask.NameToLayer("HANDCANVAS");
+        layerField = LayerMask.NameToLayer("FIELD");
+        cam = Camera.main;
         boxCol = myHandCanvas.GetComponentInChildren<BoxCollider>();
         boxCol.enabled = false;
         originalPos = myHandCanvas.transform.position;
@@ -52,16 +56,59 @@ public class GameTouchMgr : Photon.PunBehaviour
         if (state == TouchState.Idle)
         {
             OnIdle();
+            return;
         }
 
         if (state == TouchState.ModelStay || state == TouchState.CardStay)
         {
             OnStay();
+            return;
+        }
+        if(state == TouchState.CardDrag){
+            OnDragCard();
+            return;
         }
 
-        if (state == TouchState.CardDrag)
-        {
-            // TODO: buttonUp 에서 타겟팅한 오브젝트를 확인 후 할 동작을 정하고 실행.
+        if(state == TouchState.ModelDrag){
+            OnDragModel();
+            return;
+        }
+    }
+
+    private void OnDragCard(){
+        ray = cam.ScreenPointToRay(Input.mousePosition);
+        if(Input.GetMouseButton(0)){
+            // TODO: 화살표 그리기
+            Debug.DrawRay(ray.origin, ray.direction * 100.0f, Color.green);
+        }
+
+        if(Input.GetMouseButtonUp(0)){
+            if(Physics.Raycast(ray, out hit, 100.0f)){
+                int layer = hit.transform.gameObject.layer;
+                if(layer == layerField){
+                    string tag = nowDragging.tag;
+                    GameObject sommonCard = Resources.Load("FIELD_"+tag) as GameObject;
+                    Instantiate(sommonCard, hit.transform.position, hit.transform.rotation, hit.transform);
+                    Destroy(nowDragging);
+                    MaximizeHand();
+                    state = TouchState.Idle;
+                    infoRend.enabled = false;
+                }
+                state = TouchState.Idle;
+            }
+            return;
+        }
+    }
+
+    private void OnDragModel(){
+        if(Input.GetMouseButton(0)){
+            // TODO: 화살표 그리기
+        }
+
+        if(Input.GetMouseButtonUp(0)){
+            // TODO: 전투
+            state = TouchState.Idle;
+            infoRend.enabled = false;
             return;
         }
     }
@@ -75,10 +122,20 @@ public class GameTouchMgr : Photon.PunBehaviour
             return;
         }
         ray = cam.ScreenPointToRay(Input.mousePosition);
-        if (!Physics.Raycast(ray, out hit, 100.0f, 1 << nowLayer))
-        {
-            state = state == TouchState.CardStay ? TouchState.CardDrag : TouchState.ModelDrag;
-            // infoRend.enabled = false;
+        if(!Physics.Raycast(ray, out hit, 100.0f, 1<<nowLayer)){
+            if(state == TouchState.CardStay){
+                // TODO: 소환 가능한 카드인지? 마나체크.
+                // 가능할 시,
+                MinimizeHand();
+                state = TouchState.CardDrag;
+                return;
+            }
+            if(state == TouchState.ModelStay){
+                // TODO: 공격 가능한 카드인지? 공격가능여부체크.
+                // 가능할 시,
+                // state = TouchState.ModelDrag;
+                // return;
+            }
         }
     }
 
@@ -94,17 +151,13 @@ public class GameTouchMgr : Photon.PunBehaviour
                 {
                     state = TouchState.ModelStay;
                     nowLayer = layerFieldCard;
+                    MinimizeHand();
                     SetInfoPanelMaterial();
-                    // infoRend.enabled = true;
-                    // infoRend.materials[0] = Resources.Load(hit.transform.gameObject.tag) as Material;
-                }
-                else if (layer == layerHandCard)
-                {
+                } else if (layer == layerHandCard){
+                    nowDragging = hit.collider.gameObject;
                     state = TouchState.CardStay;
                     nowLayer = layerHandCard;
                     SetInfoPanelMaterial();
-                    // infoRend.enabled = true;
-                    // infoRend.materials[0] = Resources.Load(hit.transform.gameObject.tag) as Material;
                 }
             }
             return;
@@ -183,15 +236,8 @@ public class GameTouchMgr : Photon.PunBehaviour
                         myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(-15, 0, 3.2f);
                     }
                 }
-            }
-            else
-            {
-                if (!boxCol.enabled)
-                {
-                    boxCol.enabled = true;
-                    myHandCanvas.transform.localScale = Vector3.one * 0.5f;
-                    myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(15, 0, -3.2f);
-                }
+            } else {
+                MinimizeHand();
             }
         }
     }
@@ -201,5 +247,21 @@ public class GameTouchMgr : Photon.PunBehaviour
         infoRend.enabled = true;
         Material[] materials = new Material[] { Resources.Load(hit.transform.gameObject.tag) as Material, cardBack };
         infoRend.materials = materials;
+    }
+
+    private void MinimizeHand(){
+        if(!boxCol.enabled){
+            boxCol.enabled = true;
+            myHandCanvas.transform.localScale = Vector3.one * 0.5f;
+            myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(15,0,-3.2f);
+        }
+    }
+
+    private void MaximizeHand(){
+        if(boxCol.enabled){
+            boxCol.enabled = false;
+            myHandCanvas.transform.localScale = Vector3.one;
+            myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(-15,0,3.2f);
+        }
     }
 }
