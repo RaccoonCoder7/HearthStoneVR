@@ -3,7 +3,6 @@
 public class FollowMouseDemo : MonoBehaviour
 {
     public ArrowRenderer arrowRenderer;
-    public float distanceFromScreen = 5f;
 
     private Ray ray;
     private RaycastHit hit;

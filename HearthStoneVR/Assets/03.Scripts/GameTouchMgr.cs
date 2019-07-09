@@ -23,6 +23,7 @@ public class GameTouchMgr : Photon.PunBehaviour
 
     public GameObject myHandCanvas;
     public GameObject InfoCard;
+    public ArrowRenderer arrowRenderer;
 
     private Transform[] nowDeck;
     private Transform[] nowDeck2;
@@ -86,16 +87,21 @@ public class GameTouchMgr : Photon.PunBehaviour
         ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButton(0))
         {
-            // TODO: 화살표 그리기
-            if (!audioSource.isPlaying) {
+            if (!audioSource.isPlaying)
+            {
                 audioSource.Play();
             }
             Debug.DrawRay(ray.origin, ray.direction * 100.0f, Color.green);
+            if (Physics.Raycast(ray, out hit, 100.0f))
+            {
+                arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             audioSource.Stop();
+            arrowRenderer.SetPositions(new Vector3(0,-10,0), new Vector3(0,-10,0));
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
                 int layer = hit.transform.gameObject.layer;
@@ -123,12 +129,16 @@ public class GameTouchMgr : Photon.PunBehaviour
         ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButton(0))
         {
-            // TODO: 화살표 그리기
             Debug.DrawRay(ray.origin, ray.direction * 100.0f, Color.green);
+            if (Physics.Raycast(ray, out hit, 100.0f))
+            {
+                arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
         {
+            arrowRenderer.SetPositions(new Vector3(0,-10,0), new Vector3(0,-10,0));
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
                 int layer = hit.transform.gameObject.layer;
@@ -148,6 +158,9 @@ public class GameTouchMgr : Photon.PunBehaviour
 
                     state = TouchState.Idle;
                     infoRend.enabled = false;
+                    myCardState.canAttack = false;
+                    //TODO: 턴 종료시 포문으로 canAttack바꾸기
+                    sommonedCards.Add(nowDragging);
                 }
                 state = TouchState.Idle;
             }
@@ -182,8 +195,12 @@ public class GameTouchMgr : Photon.PunBehaviour
             if (state == TouchState.ModelStay)
             {
                 // TODO: 공격 가능한 카드인지? 공격가능여부체크.
+                // if(nowDragging.GetComponent<CardState>().canAttack){
+                    
+                // }
+                
                 // 가능할 시,
-                // state = TouchState.ModelDrag;
+                state = TouchState.ModelDrag;
                 // return;
             }
         }
