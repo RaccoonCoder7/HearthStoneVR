@@ -35,30 +35,30 @@ public class GameManager : Photon.PunBehaviour
 
     IEnumerator FadeOut()
     {
+        startGame = true;
         Color color = img.color;
+        audioSource.clip = clips[0];
+        audioSource.Play();
         while (color.a > 0.0f)
         {
-            color.a -= 0.05f;
+            color.a -= 0.03f;
             img.color = color;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
         }
         waitingText.SetActive(false);
         canvas.SetActive(false);
-        startGame = true;
-        audioSource.clip = clips[0];
-        audioSource.Play();
     }
 
     public void ChngeMusic(int musicNum, bool returnToOrigin){
         float originalTime = audioSource.time;
         float length = clips[musicNum].length;
-
-        audioSource.Stop();
-        audioSource.clip = clips[musicNum];
-        audioSource.Play();
-        if(returnToOrigin){
-            StartCoroutine(returnToBGM(length, originalTime));
-        }
+        audioSource.PlayOneShot(clips[musicNum]);
+        // audioSource.Stop();
+        // audioSource.clip = clips[musicNum];
+        // audioSource.Play();
+        // if(returnToOrigin){
+        //     StartCoroutine(returnToBGM(length, originalTime));
+        // }
     }
 
     IEnumerator returnToBGM(float length, float originalTime){

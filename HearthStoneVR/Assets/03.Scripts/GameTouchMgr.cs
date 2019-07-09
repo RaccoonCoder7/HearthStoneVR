@@ -112,9 +112,9 @@ public class GameTouchMgr : Photon.PunBehaviour
                     //TODO: 턴 종료시 포문으로 canAttack바꾸기
                     sommonedCards.Add(sommonedCard);
                 }
-                state = TouchState.Idle;
             }
-            return;
+            infoRend.enabled = false;
+            state = TouchState.Idle;
         }
     }
 

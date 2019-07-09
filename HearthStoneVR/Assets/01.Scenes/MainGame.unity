@@ -179,11 +179,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaitingCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 9039771174983307364, guid: 11d5b6e2c2947c548b664d875b0b7d74,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4607537608771134404, guid: 11d5b6e2c2947c548b664d875b0b7d74,
         type: 3}
       propertyPath: m_LocalPosition.x
