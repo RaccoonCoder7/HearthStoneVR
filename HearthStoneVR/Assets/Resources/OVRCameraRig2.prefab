@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 1949394468524630030}
   - component: {fileID: 7676903646292326050}
   - component: {fileID: 3764326533376392665}
-  - component: {fileID: 8701148345318181495}
+  - component: {fileID: 7459964130570658106}
   m_Layer: 0
   m_Name: OVRCameraRig2
   m_TagString: Untagged
@@ -487,7 +487,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &8701148345318181495
+--- !u!114 &7459964130570658106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1917147115704337070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a4d9815a65b1064e8a349c8806fd894, type: 3}
+  m_Script: {fileID: 11500000, guid: 4948a090497fd6642a456fdd7967b164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1917147115704348406

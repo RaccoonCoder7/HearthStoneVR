@@ -46,8 +46,8 @@ GameObject:
   - component: {fileID: 125048279617512849}
   - component: {fileID: 8222458840590122307}
   m_Layer: 10
-  m_Name: FIELD_BEE
-  m_TagString: BEE
+  m_Name: Field_bee
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,25 +132,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.5499554, y: 7.4155035, z: 1.339}
-  m_Center: {x: -0.010352612, y: 1.2018933, z: -0.455881}
---- !u!114 &8222458840590122307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2959591686142157165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 135b5e0194ed70948a582582819a6e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardName: "\uD761\uD608\uCDA9"
-  cost: 4
-  originHealth: 3
-  originAttck: 3
-  species: "\uC57C\uC218"
+  m_Size: {x: 5.5499554, y: 7.4155035, z: 0.51648986}
+  m_Center: {x: -0.010352612, y: 1.2018933, z: -0.044625998}
 --- !u!1001 &8825035965800170657
 PrefabInstance:
   m_ObjectHideFlags: 0
