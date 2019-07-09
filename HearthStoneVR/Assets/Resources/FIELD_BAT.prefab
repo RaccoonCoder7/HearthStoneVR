@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 820533787508424904}
   - component: {fileID: 820533787508424907}
   - component: {fileID: 1559895138221400831}
+  - component: {fileID: 1969829387817049858}
   m_Layer: 10
   m_Name: FIELD_BAT
   m_TagString: BAT
@@ -102,6 +103,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.477438, y: 7.5045614, z: 1.2002223}
   m_Center: {x: 0.007142544, y: 1.2324791, z: -0.41178787}
+--- !u!114 &1969829387817049858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820533787508424909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135b5e0194ed70948a582582819a6e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: "\uB208\uBC15\uC950"
+  cost: 1
+  originHealth: 1
+  originAttck: 2
+  species: "\uC57C\uC218"
 --- !u!1 &820533787672109159
 GameObject:
   m_ObjectHideFlags: 0

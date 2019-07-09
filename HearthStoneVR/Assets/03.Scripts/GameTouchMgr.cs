@@ -18,6 +18,8 @@ public class GameTouchMgr : Photon.PunBehaviour
     private Renderer infoRend;
     private Material cardBack;
     private GameObject nowDragging;
+    private List<GameObject> sommonedCards = new List<GameObject>();
+
     public GameObject myHandCanvas;
     public GameObject InfoCard;
 
@@ -28,6 +30,7 @@ public class GameTouchMgr : Photon.PunBehaviour
     private Transform[] child2;
     private GameObject deck;
     private GameObject deck2;
+
 
     enum TouchState { Idle, CardStay, CardDrag, ModelStay, ModelDrag, Disable };
     TouchState state = TouchState.Idle;
@@ -64,35 +67,44 @@ public class GameTouchMgr : Photon.PunBehaviour
             OnStay();
             return;
         }
-        if(state == TouchState.CardDrag){
+        if (state == TouchState.CardDrag)
+        {
             OnDragCard();
             return;
         }
 
-        if(state == TouchState.ModelDrag){
+        if (state == TouchState.ModelDrag)
+        {
             OnDragModel();
-            return;
         }
     }
 
-    private void OnDragCard(){
+    private void OnDragCard()
+    {
         ray = cam.ScreenPointToRay(Input.mousePosition);
-        if(Input.GetMouseButton(0)){
+        if (Input.GetMouseButton(0))
+        {
             // TODO: 화살표 그리기
             Debug.DrawRay(ray.origin, ray.direction * 100.0f, Color.green);
         }
 
-        if(Input.GetMouseButtonUp(0)){
-            if(Physics.Raycast(ray, out hit, 100.0f)){
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (Physics.Raycast(ray, out hit, 100.0f))
+            {
                 int layer = hit.transform.gameObject.layer;
-                if(layer == layerField){
+                if (layer == layerField)
+                {
                     string tag = nowDragging.tag;
-                    GameObject sommonCard = Resources.Load("FIELD_"+tag) as GameObject;
-                    Instantiate(sommonCard, hit.transform.position, hit.transform.rotation, hit.transform);
+                    // GameObject sommonCard = Resources.Load("FIELD_" + tag) as GameObject;
+                    GameObject sommonedCard = Instantiate(Resources.Load("FIELD_" + tag) as GameObject,
+                                             hit.transform.position, hit.transform.rotation, hit.transform);
                     Destroy(nowDragging);
                     MaximizeHand();
                     state = TouchState.Idle;
                     infoRend.enabled = false;
+                    //TODO: 턴 종료시 포문으로 canAttack바꾸기
+                    sommonedCards.Add(sommonedCard);
                 }
                 state = TouchState.Idle;
             }
@@ -100,13 +112,38 @@ public class GameTouchMgr : Photon.PunBehaviour
         }
     }
 
-    private void OnDragModel(){
-        if(Input.GetMouseButton(0)){
+    private void OnDragModel()
+    {
+        ray = cam.ScreenPointToRay(Input.mousePosition);
+        if (Input.GetMouseButton(0))
+        {
             // TODO: 화살표 그리기
+            Debug.DrawRay(ray.origin, ray.direction * 100.0f, Color.green);
         }
 
-        if(Input.GetMouseButtonUp(0)){
-            // TODO: 전투
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (Physics.Raycast(ray, out hit, 100.0f))
+            {
+                int layer = hit.transform.gameObject.layer;
+                if (layer == layerFieldCard)
+                {
+                    // 전투
+                    CardState myCardState = nowDragging.GetComponent<CardState>();
+                    CardState enemyCardState = hit.collider.GetComponent<CardState>();
+                    Debug.Log("MineAttack: " + myCardState.Attack);
+                    Debug.Log("MineHP: " + myCardState.HP);
+                    Debug.Log("EnemyAttack: " + enemyCardState.Attack);
+                    Debug.Log("EnemyHP: " + enemyCardState.HP);
+                    enemyCardState.HP -= myCardState.Attack;
+                    myCardState.HP -= enemyCardState.Attack;
+                    //TODO: UI변경, 하수인죽기, 애니메이션
+
+                    state = TouchState.Idle;
+                    infoRend.enabled = false;
+                }
+                state = TouchState.Idle;
+            }
             state = TouchState.Idle;
             infoRend.enabled = false;
             return;
@@ -122,15 +159,21 @@ public class GameTouchMgr : Photon.PunBehaviour
             return;
         }
         ray = cam.ScreenPointToRay(Input.mousePosition);
-        if(!Physics.Raycast(ray, out hit, 100.0f, 1<<nowLayer)){
-            if(state == TouchState.CardStay){
+        if (!Physics.Raycast(ray, out hit, 100.0f, 1 << nowLayer))
+        {
+            if (state == TouchState.CardStay)
+            {
                 // TODO: 소환 가능한 카드인지? 마나체크.
+                // if(nowDragging.GetComponent<CardState>().cost > mana){
+                //     return;
+                // }
                 // 가능할 시,
                 MinimizeHand();
                 state = TouchState.CardDrag;
                 return;
             }
-            if(state == TouchState.ModelStay){
+            if (state == TouchState.ModelStay)
+            {
                 // TODO: 공격 가능한 카드인지? 공격가능여부체크.
                 // 가능할 시,
                 // state = TouchState.ModelDrag;
@@ -149,11 +192,14 @@ public class GameTouchMgr : Photon.PunBehaviour
                 int layer = hit.transform.gameObject.layer;
                 if (layer == layerFieldCard)
                 {
+                    nowDragging = hit.collider.gameObject;
                     state = TouchState.ModelStay;
                     nowLayer = layerFieldCard;
                     MinimizeHand();
                     SetInfoPanelMaterial();
-                } else if (layer == layerHandCard){
+                }
+                else if (layer == layerHandCard)
+                {
                     nowDragging = hit.collider.gameObject;
                     state = TouchState.CardStay;
                     nowLayer = layerHandCard;
@@ -236,7 +282,9 @@ public class GameTouchMgr : Photon.PunBehaviour
                         myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(-15, 0, 3.2f);
                     }
                 }
-            } else {
+            }
+            else
+            {
                 MinimizeHand();
             }
         }
@@ -249,19 +297,23 @@ public class GameTouchMgr : Photon.PunBehaviour
         infoRend.materials = materials;
     }
 
-    private void MinimizeHand(){
-        if(!boxCol.enabled){
+    private void MinimizeHand()
+    {
+        if (!boxCol.enabled)
+        {
             boxCol.enabled = true;
             myHandCanvas.transform.localScale = Vector3.one * 0.5f;
-            myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(15,0,-3.2f);
+            myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(15, 0, -3.2f);
         }
     }
 
-    private void MaximizeHand(){
-        if(boxCol.enabled){
+    private void MaximizeHand()
+    {
+        if (boxCol.enabled)
+        {
             boxCol.enabled = false;
             myHandCanvas.transform.localScale = Vector3.one;
-            myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(-15,0,3.2f);
+            myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(-15, 0, 3.2f);
         }
     }
 }
