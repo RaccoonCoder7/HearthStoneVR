@@ -16,6 +16,7 @@ public class CardState : MonoBehaviour
     private int attack;
     private AudioSource audioSource;
     private AudioClip attackClip;
+    private Vector3 origin;
 
     private void Start()
     {
@@ -44,8 +45,29 @@ public class CardState : MonoBehaviour
         }
     }
 
-    public void playAttackSound(){
+    public void doAttack(Vector3 targetPos){
+        StartCoroutine("playAttackSound");
+        StartCoroutine(attackAnim(targetPos));
+    }
+
+    IEnumerator playAttackSound(){
+        yield return new WaitForSeconds(0.5f);
         audioSource.clip = attackClip;
         audioSource.Play();
+    }
+
+    IEnumerator attackAnim(Vector3 targetPos){
+        origin = transform.position;
+        Hashtable ht = new Hashtable();
+        ht.Add("time", 0.5f);
+        ht.Add("position", targetPos);
+        ht.Add("easetype", iTween.EaseType.easeInBack);
+        iTween.MoveTo(gameObject, ht);
+        yield return new WaitForSeconds(0.5f);
+        Hashtable ht2 = new Hashtable();
+        ht2.Add("time", 0.5f);
+        ht2.Add("position", origin);
+        ht2.Add("easetype", iTween.EaseType.easeOutCubic);
+        iTween.MoveTo(gameObject, ht2);
     }
 }

@@ -151,10 +151,10 @@ public class GameTouchMgr : Photon.PunBehaviour
                     Debug.Log("MineHP: " + myCardState.HP);
                     Debug.Log("EnemyAttack: " + enemyCardState.Attack);
                     Debug.Log("EnemyHP: " + enemyCardState.HP);
-                    myCardState.playAttackSound();
+                    myCardState.doAttack(hit.collider.transform.position);
                     enemyCardState.HP -= myCardState.Attack;
                     myCardState.HP -= enemyCardState.Attack;
-                    //TODO: UI변경, 하수인죽기, 애니메이션
+                    //TODO: UI변경, 하수인죽기
 
                     state = TouchState.Idle;
                     infoRend.enabled = false;
