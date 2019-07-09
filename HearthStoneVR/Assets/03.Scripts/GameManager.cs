@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Photon.PunBehaviour
 {
@@ -11,10 +12,15 @@ public class GameManager : Photon.PunBehaviour
 
     private AudioSource audioSource;
     private bool startGame;
+    public GameObject waitingText;
+    public GameObject txt;
+    public GameObject photonManager;
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+    
+        photonManager = GameObject.Find("photonManager");
     }
 
     // Update is called once per frame
@@ -24,7 +30,7 @@ public class GameManager : Photon.PunBehaviour
         {
             StartCoroutine("FadeOut");
         }
-        
+
     }
 
     IEnumerator FadeOut()
@@ -36,6 +42,7 @@ public class GameManager : Photon.PunBehaviour
             img.color = color;
             yield return new WaitForSeconds(0.5f);
         }
+        waitingText.SetActive(false);
         canvas.SetActive(false);
         startGame = true;
         audioSource.clip = clips[0];
@@ -60,5 +67,24 @@ public class GameManager : Photon.PunBehaviour
         audioSource.clip = clips[0];
         audioSource.time = originalTime;
         audioSource.Play();
+    }
+    IEnumerator EndGame()
+    {
+        canvas.SetActive(true);
+        waitingText.SetActive(false);
+        txt.SetActive(true);
+        txt.GetComponent<Text>().text = "WIN";
+        yield return new WaitForSeconds(4);
+        LeaveRoom();
+    }
+    public void OnLeftRoom()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void LeaveRoom()
+    {
+        Destroy(photonManager);
+        PhotonNetwork.LeaveRoom();
     }
 }
