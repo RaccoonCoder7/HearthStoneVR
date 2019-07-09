@@ -18,6 +18,7 @@ public class GameTouchMgr : Photon.PunBehaviour
     private Renderer infoRend;
     private Material cardBack;
     private GameObject nowDragging;
+    private AudioSource audioSource;
     private List<GameObject> sommonedCards = new List<GameObject>();
 
     public GameObject myHandCanvas;
@@ -47,13 +48,14 @@ public class GameTouchMgr : Photon.PunBehaviour
         boxCol.enabled = false;
         originalPos = myHandCanvas.transform.position;
         infoRend = InfoCard.GetComponent<Renderer>();
+        audioSource = GetComponent<AudioSource>();
         infoRend.enabled = false;
         cardBack = Resources.Load("CARDBACK") as Material;
     }
 
     void Update()
     {
-        cam = Camera.main;
+        // cam = Camera.main;
         if (state == TouchState.Disable) return;
 
         if (state == TouchState.Idle)
@@ -85,11 +87,15 @@ public class GameTouchMgr : Photon.PunBehaviour
         if (Input.GetMouseButton(0))
         {
             // TODO: 화살표 그리기
+            if (!audioSource.isPlaying) {
+                audioSource.Play();
+            }
             Debug.DrawRay(ray.origin, ray.direction * 100.0f, Color.green);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
+            audioSource.Stop();
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
                 int layer = hit.transform.gameObject.layer;
@@ -135,6 +141,7 @@ public class GameTouchMgr : Photon.PunBehaviour
                     Debug.Log("MineHP: " + myCardState.HP);
                     Debug.Log("EnemyAttack: " + enemyCardState.Attack);
                     Debug.Log("EnemyHP: " + enemyCardState.HP);
+                    myCardState.playAttackSound();
                     enemyCardState.HP -= myCardState.Attack;
                     myCardState.HP -= enemyCardState.Attack;
                     //TODO: UI변경, 하수인죽기, 애니메이션
