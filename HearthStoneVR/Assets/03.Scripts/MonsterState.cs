@@ -34,20 +34,21 @@ public class MonsterState : Photon.PunBehaviour
             txt.text = "0";
             StartCoroutine("EnemyDeath");
         }
-        txt.text = point.ToString();
+        else
+        {
+            txt.text = point.ToString();
+        }
+        
     }
 
     IEnumerator EnemyDeath()
     {
         yield return new WaitForSeconds(1);
-        Renderer render = enemy.GetComponentInChildren<Renderer>();
-        //while (color > 0.0f)
-        //{
-        //    render.material.color
-        //    color.a -= 0.07f;
-        //    img.color = color;
-        //    yield return new waitforseconds(0.1f);
-        //}
+        for (int i = 0; i < 30; i++)
+        { 
+            enemy.transform.position += new Vector3(0, -0.1f, 0);
+        yield return new WaitForSeconds(0.05f);
+        }
         Destroy(enemy);
     }
 }
