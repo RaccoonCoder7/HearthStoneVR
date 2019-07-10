@@ -581,6 +581,11 @@ PrefabInstance:
     - target: {fileID: 6233157441258491723, guid: 56e9d00faac625544aae449fc1490054,
         type: 3}
       propertyPath: HPTxt
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233157441258491723, guid: 56e9d00faac625544aae449fc1490054,
+        type: 3}
+      propertyPath: MPTxt
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3121912954646484165, guid: 56e9d00faac625544aae449fc1490054,

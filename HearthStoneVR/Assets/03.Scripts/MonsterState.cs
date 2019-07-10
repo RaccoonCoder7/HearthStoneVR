@@ -10,6 +10,7 @@ public class MonsterState : Photon.PunBehaviour
     public GameObject enemy;
     public Image img;
     public string HPTxt;
+    public string attackTxt;
 
     // Start is called before the first frame update
     void Start()

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2959591686142157163}
   - component: {fileID: 125048279617512849}
   - component: {fileID: 8222458840590122307}
+  - component: {fileID: 8154782731129652980}
   m_Layer: 10
   m_Name: FIELD_BEE
   m_TagString: BEE
@@ -401,6 +402,16 @@ PrefabInstance:
       propertyPath: HPTxt
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6233157441258491723, guid: 56e9d00faac625544aae449fc1490054,
+        type: 3}
+      propertyPath: MPTxt
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233157441258491723, guid: 56e9d00faac625544aae449fc1490054,
+        type: 3}
+      propertyPath: attackTxt
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3121912954646484165, guid: 56e9d00faac625544aae449fc1490054,
         type: 3}
       propertyPath: m_Name
@@ -522,11 +533,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2959591685495984121}
     m_Modifications:
-    - target: {fileID: 8179081349195108044, guid: 3ba8293232345444ba16f4a591825dba,
-        type: 3}
-      propertyPath: m_Name
-      value: bee
-      objectReference: {fileID: 0}
     - target: {fileID: 8181652347769065056, guid: 3ba8293232345444ba16f4a591825dba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -596,6 +602,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 380
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179081349195108044, guid: 3ba8293232345444ba16f4a591825dba,
+        type: 3}
+      propertyPath: m_Name
+      value: bee
       objectReference: {fileID: 0}
     - target: {fileID: 8170623528300744042, guid: 3ba8293232345444ba16f4a591825dba,
         type: 3}
