@@ -619,6 +619,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5360529850464756226, guid: 35343ff806b9f33478ad825a10418790,
+        type: 3}
+      propertyPath: arrowRenderer
+      value: 
+      objectReference: {fileID: 3528391314621660993}
+    - target: {fileID: 5360529850464756226, guid: 35343ff806b9f33478ad825a10418790,
+        type: 3}
+      propertyPath: InfoCard
+      value: 
+      objectReference: {fileID: 5875755665597485169}
+    - target: {fileID: 5360529850464756226, guid: 35343ff806b9f33478ad825a10418790,
+        type: 3}
+      propertyPath: myHandCanvas
+      value: 
+      objectReference: {fileID: 9023690419900298210}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35343ff806b9f33478ad825a10418790, type: 3}
 --- !u!4 &6299173071091995440 stripped
