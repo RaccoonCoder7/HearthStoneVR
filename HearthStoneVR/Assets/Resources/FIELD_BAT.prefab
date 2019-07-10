@@ -563,6 +563,31 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6233157441258491723, guid: 56e9d00faac625544aae449fc1490054,
+        type: 3}
+      propertyPath: txt
+      value: 
+      objectReference: {fileID: 8247442445493366921}
+    - target: {fileID: 6233157441258491723, guid: 56e9d00faac625544aae449fc1490054,
+        type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 820533787508424909}
+    - target: {fileID: 6233157441258491723, guid: 56e9d00faac625544aae449fc1490054,
+        type: 3}
+      propertyPath: img
+      value: 
+      objectReference: {fileID: 820533787508424904}
+    - target: {fileID: 6233157441258491723, guid: 56e9d00faac625544aae449fc1490054,
+        type: 3}
+      propertyPath: HPTxt
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121912954646484165, guid: 56e9d00faac625544aae449fc1490054,
+        type: 3}
+      propertyPath: m_Name
+      value: HP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56e9d00faac625544aae449fc1490054, type: 3}
 --- !u!224 &3862395802804522881 stripped
@@ -571,3 +596,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6356784930884157681}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8247442445493366921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3045307468771258488, guid: 56e9d00faac625544aae449fc1490054,
+    type: 3}
+  m_PrefabInstance: {fileID: 6356784930884157681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

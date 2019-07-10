@@ -52,6 +52,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b028b4459a3cd4b9e178e3a94e0a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  txt: {fileID: 3045307468771258488}
+  enemy: {fileID: 0}
+  img: {fileID: 0}
+  HPTxt: 
 --- !u!114 &6254098031410909839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +168,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7903301347975860080}
     m_Modifications:
+    - target: {fileID: 6432187584375041112, guid: 05cd2461ff4f0224eb75e18d1c91a31c,
+        type: 3}
+      propertyPath: m_Name
+      value: HP
+      objectReference: {fileID: 0}
     - target: {fileID: 2004165516281020207, guid: 05cd2461ff4f0224eb75e18d1c91a31c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -284,11 +293,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6432187584375041112, guid: 05cd2461ff4f0224eb75e18d1c91a31c,
-        type: 3}
-      propertyPath: m_Name
-      value: HP
-      objectReference: {fileID: 0}
     - target: {fileID: 9207426690936670073, guid: 05cd2461ff4f0224eb75e18d1c91a31c,
         type: 3}
       propertyPath: m_Color.g
@@ -299,6 +303,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2829237909985804760, guid: 05cd2461ff4f0224eb75e18d1c91a31c,
+        type: 3}
+      propertyPath: m_Name
+      value: HP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05cd2461ff4f0224eb75e18d1c91a31c, type: 3}
 --- !u!224 &1711370341657700914 stripped
@@ -307,6 +316,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 869260325262791965}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3045307468771258488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2761586915778323813, guid: 05cd2461ff4f0224eb75e18d1c91a31c,
+    type: 3}
+  m_PrefabInstance: {fileID: 869260325262791965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9195414929249567491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -314,6 +335,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7903301347975860080}
     m_Modifications:
+    - target: {fileID: 6432187584375041112, guid: 05cd2461ff4f0224eb75e18d1c91a31c,
+        type: 3}
+      propertyPath: m_Name
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 2004165516281020207, guid: 05cd2461ff4f0224eb75e18d1c91a31c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -433,11 +459,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6432187584375041112, guid: 05cd2461ff4f0224eb75e18d1c91a31c,
-        type: 3}
-      propertyPath: m_Name
-      value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05cd2461ff4f0224eb75e18d1c91a31c, type: 3}

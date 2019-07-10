@@ -164,7 +164,18 @@ public class GameTouchMgr : Photon.PunBehaviour
                     myCardState.doAttack(enemyCardState.transform.position);
                     enemyCardState.HP -= myCardState.Attack;
                     myCardState.HP -= enemyCardState.Attack;
-                    //TODO: UI변경, 하수인죽기
+
+                    GameObject myDamage = Instantiate(Resources.Load("DamageCanvas") as GameObject, nowDragging.transform.position + new Vector3(0, 10, 0), Quaternion.Euler(0, 90, 0), nowDragging.transform);
+                    myDamage.SendMessage("SetDamage", myCardState.Attack);
+                    Transform myHPState = nowDragging.transform.GetChild(2);
+
+
+                    GameObject enemyDamage = Instantiate(Resources.Load("DamageCanvas") as GameObject, enemyCardState.transform.position + new Vector3(0, 10, 0), Quaternion.Euler(0, 90, 0));
+                    enemyDamage.SendMessage("SetDamage", myCardState.Attack);
+                    Transform enemyHPState = enemyCardState.transform.GetChild(2);
+                    myHPState.SendMessage("SetHealth", myCardState.HP);
+                    enemyHPState.SendMessage("SetHealth", enemyCardState.HP);
+                    //TODO: UI변경, 하수인죽기, 애니메이션
 
                     state = TouchState.Idle;
                     infoRend.enabled = false;

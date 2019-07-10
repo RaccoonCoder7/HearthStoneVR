@@ -89,7 +89,7 @@ public class GameManager : Photon.PunBehaviour
         yield return new WaitForSeconds(clips[5].length);
         LeaveRoom();
     }
-    public void OnLeftRoom()
+    override public void OnLeftRoom()
     {
         SceneManager.LoadScene(0);
     }
