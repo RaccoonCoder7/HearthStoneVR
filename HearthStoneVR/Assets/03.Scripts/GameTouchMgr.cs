@@ -103,7 +103,7 @@ public class GameTouchMgr : Photon.PunBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             audioSource.Stop();
-            arrowRenderer.SetPositions(new Vector3(0,-10,0), new Vector3(0,-10,0));
+            arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
                 int layer = hit.transform.gameObject.layer;
@@ -140,7 +140,7 @@ public class GameTouchMgr : Photon.PunBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            arrowRenderer.SetPositions(new Vector3(0,-10,0), new Vector3(0,-10,0));
+            arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
                 int layer = hit.transform.gameObject.layer;
@@ -148,12 +148,20 @@ public class GameTouchMgr : Photon.PunBehaviour
                 {
                     // 전투
                     CardState myCardState = nowDragging.GetComponent<CardState>();
-                    CardState enemyCardState = hit.collider.GetComponent<CardState>();
+                    CardState enemyCardState;
+                    if (hit.collider.tag == "MODEL")
+                    {
+                        enemyCardState = hit.transform.parent.GetComponent<CardState>();
+                    }
+                    else
+                    {
+                        enemyCardState = hit.collider.GetComponent<CardState>();
+                    }
                     Debug.Log("MineAttack: " + myCardState.Attack);
                     Debug.Log("MineHP: " + myCardState.HP);
                     Debug.Log("EnemyAttack: " + enemyCardState.Attack);
                     Debug.Log("EnemyHP: " + enemyCardState.HP);
-                    myCardState.doAttack(hit.collider.transform.position);
+                    myCardState.doAttack(enemyCardState.transform.position);
                     enemyCardState.HP -= myCardState.Attack;
                     myCardState.HP -= enemyCardState.Attack;
                     //TODO: UI변경, 하수인죽기
@@ -163,7 +171,9 @@ public class GameTouchMgr : Photon.PunBehaviour
                     myCardState.canAttack = false;
                     //TODO: 턴 종료시 포문으로 canAttack바꾸기
                     sommonedCards.Add(nowDragging);
-                } else if (layer == layerPlayer){
+                }
+                else if (layer == layerPlayer)
+                {
                     CardState myCardState = nowDragging.GetComponent<CardState>();
                     Vector3 playerPos = hit.collider.transform.position;
                     playerPos.y += 20;
@@ -205,9 +215,9 @@ public class GameTouchMgr : Photon.PunBehaviour
             {
                 // TODO: 공격 가능한 카드인지? 공격가능여부체크.
                 // if(nowDragging.GetComponent<CardState>().canAttack){
-                    
+
                 // }
-                
+
                 // 가능할 시,
                 state = TouchState.ModelDrag;
                 // return;
@@ -225,7 +235,14 @@ public class GameTouchMgr : Photon.PunBehaviour
                 int layer = hit.transform.gameObject.layer;
                 if (layer == layerFieldCard)
                 {
-                    nowDragging = hit.collider.gameObject;
+                    if (hit.collider.tag == "MODEL")
+                    {
+                        nowDragging = hit.transform.parent.gameObject;
+                    }
+                    else
+                    {
+                        nowDragging = hit.collider.gameObject;
+                    }
                     state = TouchState.ModelStay;
                     nowLayer = layerFieldCard;
                     MinimizeHand();
@@ -326,7 +343,7 @@ public class GameTouchMgr : Photon.PunBehaviour
     private void SetInfoPanelMaterial()
     {
         infoRend.enabled = true;
-        Material[] materials = new Material[] { Resources.Load(hit.transform.gameObject.tag) as Material, cardBack };
+        Material[] materials = new Material[] { Resources.Load(nowDragging.tag) as Material, cardBack };
         infoRend.materials = materials;
     }
 

@@ -252,6 +252,19 @@ Transform:
   m_Father: {fileID: 820533787508424906}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180.00002}
+--- !u!65 &7635054170548548118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883096638384668296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.42131954, y: 0.4026929, z: 0.41607752}
+  m_Center: {x: -0.00083510083, y: 1.0325757, z: -0.0059137805}
 --- !u!1 &8417242913717979848
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +368,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Polygonal One Eyed Bat Red
       objectReference: {fileID: 0}
+    - target: {fileID: 1447110953582642, guid: 8cda73cac996b3546bce0b8d9874d887, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447110953582642, guid: 8cda73cac996b3546bce0b8d9874d887, type: 3}
+      propertyPath: m_TagString
+      value: MODEL
+      objectReference: {fileID: 0}
     - target: {fileID: 4781463645259616, guid: 8cda73cac996b3546bce0b8d9874d887, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -413,6 +434,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cda73cac996b3546bce0b8d9874d887, type: 3}
+--- !u!1 &5883096638384668296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1447110953582642, guid: 8cda73cac996b3546bce0b8d9874d887,
+    type: 3}
+  m_PrefabInstance: {fileID: 5882212503162764986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5886536406762109402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4781463645259616, guid: 8cda73cac996b3546bce0b8d9874d887,
