@@ -19,7 +19,7 @@ public class GameManager : Photon.PunBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-    
+
         photonManager = GameObject.Find("photonManager");
     }
 
@@ -49,7 +49,8 @@ public class GameManager : Photon.PunBehaviour
         canvas.SetActive(false);
     }
 
-    public void ChngeMusic(int musicNum, bool returnToOrigin){
+    public void ChngeMusic(int musicNum, bool returnToOrigin)
+    {
         float originalTime = audioSource.time;
         float length = clips[musicNum].length;
         audioSource.PlayOneShot(clips[musicNum]);
@@ -61,20 +62,31 @@ public class GameManager : Photon.PunBehaviour
         // }
     }
 
-    IEnumerator returnToBGM(float length, float originalTime){
-        yield return new WaitForSeconds(length);
-        audioSource.Stop();
-        audioSource.clip = clips[0];
-        audioSource.time = originalTime;
-        audioSource.Play();
+    // IEnumerator returnToBGM(float length, float originalTime){
+    //     yield return new WaitForSeconds(length);
+    //     audioSource.Stop();
+    //     audioSource.clip = clips[0];
+    //     audioSource.time = originalTime;
+    //     audioSource.Play();
+    // }
+
+    public void EndGame(){
+        StartCoroutine("DoEndGame");
     }
-    IEnumerator EndGame()
+
+    IEnumerator DoEndGame()
     {
+        yield return new WaitForSeconds(1f);
+        audioSource.Stop();
+        audioSource.clip = clips[4];
+        audioSource.Play();
         canvas.SetActive(true);
         waitingText.SetActive(false);
         txt.SetActive(true);
         txt.GetComponent<Text>().text = "WIN";
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(0.3f);
+        audioSource.PlayOneShot(clips[5]);
+        yield return new WaitForSeconds(clips[5].length);
         LeaveRoom();
     }
     public void OnLeftRoom()

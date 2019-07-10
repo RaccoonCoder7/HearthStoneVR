@@ -13,6 +13,7 @@ public class GameTouchMgr : Photon.PunBehaviour
     private int layerTurn;
     private int layerHandCanvas;
     private int layerField;
+    private int layerPlayer;
     private BoxCollider boxCol;
     private Vector3 originalPos;
     private Renderer infoRend;
@@ -44,6 +45,7 @@ public class GameTouchMgr : Photon.PunBehaviour
         layerTurn = LayerMask.NameToLayer("TURN");
         layerHandCanvas = LayerMask.NameToLayer("HANDCANVAS");
         layerField = LayerMask.NameToLayer("FIELD");
+        layerPlayer = LayerMask.NameToLayer("PLAYER");
         cam = Camera.main;
         boxCol = myHandCanvas.GetComponentInChildren<BoxCollider>();
         boxCol.enabled = false;
@@ -161,6 +163,13 @@ public class GameTouchMgr : Photon.PunBehaviour
                     myCardState.canAttack = false;
                     //TODO: 턴 종료시 포문으로 canAttack바꾸기
                     sommonedCards.Add(nowDragging);
+                } else if (layer == layerPlayer){
+                    CardState myCardState = nowDragging.GetComponent<CardState>();
+                    Vector3 playerPos = hit.collider.transform.position;
+                    playerPos.y += 20;
+                    myCardState.doAttack(playerPos);
+                    GameObject.Find("GameMgr").GetComponent<GameManager>().EndGame();
+                    //TODO: 영웅공격 구현: 게임종료
                 }
                 state = TouchState.Idle;
             }

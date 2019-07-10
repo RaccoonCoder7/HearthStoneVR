@@ -51,6 +51,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 126964b2a9ecf5c4980ababfec738655, type: 3}
   - {fileID: 8300000, guid: 7bb7f72f62745214ab9dbc796003c558, type: 3}
   - {fileID: 8300000, guid: fb2bb149994452646b989e3a528872d4, type: 3}
+  - {fileID: 8300000, guid: 126964b2a9ecf5c4980ababfec738655, type: 3}
+  - {fileID: 8300000, guid: 7ae511b3cd8a685499b133963c8d58d4, type: 3}
+  waitingText: {fileID: 0}
+  txt: {fileID: 0}
+  photonManager: {fileID: 0}
 --- !u!82 &5926508304013621411
 AudioSource:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class DeckController : Photon.PunBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isCreate && GameObject.Find("HandCanvas/HandCards") && GameObject.Find("HandCanvas/HandCards"))
+        if (!isCreate && GameObject.Find("HandCanvas/HandCards") && GameObject.Find("HandCanvas2/HandCards"))
         {
             handCards1 = GameObject.Find("HandCanvas/HandCards").GetComponent<Transform>();
             handCards2 = GameObject.Find("HandCanvas2/HandCards").GetComponent<Transform>();
