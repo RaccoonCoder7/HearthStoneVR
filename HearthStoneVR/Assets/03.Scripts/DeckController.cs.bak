@@ -21,7 +21,11 @@ public class DeckController : Photon.PunBehaviour
 
     public void Initite()
     {
+<<<<<<< Updated upstream
+        if (!isCreate && GameObject.Find("HandCanvas/HandCards") && GameObject.Find("HandCanvas2/HandCards"))
+=======
         if (!isCreate && PhotonNetwork.room.PlayerCount == 2)
+>>>>>>> Stashed changes
         {
             isCreate = true;
             handCards1 = GameObject.Find("HandCanvas/HandCards").GetComponent<Transform>();

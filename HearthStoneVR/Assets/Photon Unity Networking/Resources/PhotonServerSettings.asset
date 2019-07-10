@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3758f8f58fdef43803eb9be1df0608, type: 3}
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
-  AppID: 717246de-bc89-4887-a119-5be8934c5cb0
+  AppID: b53f59e9-d35d-4184-b017-8b3627013164
   VoiceAppID: 
   ChatAppID: 
   HostType: 1
@@ -43,4 +43,10 @@ MonoBehaviour:
   - RequestForPickupItems
   - RequestForPickupTimes
   - TaggedPlayer
+  - TurnChange
+  - CardSet1
+  - CardSet2
+  - CreateDragCard
+  - TurnMove
+  - CardMove
   DisableAutoOpenWizard: 1

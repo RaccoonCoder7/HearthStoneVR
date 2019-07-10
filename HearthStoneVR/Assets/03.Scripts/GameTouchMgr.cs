@@ -27,12 +27,10 @@ public class GameTouchMgr : Photon.PunBehaviour
     public ArrowRenderer arrowRenderer;
 
     private Transform[] nowDeck;
-    private Transform[] nowDeck2;
     private DeckController decCtrl;
     private Transform[] child;
-    private Transform[] child2;
     private GameObject deck;
-    private GameObject deck2;
+    private PhotonView turnButtonPhoton;
 
 
     enum TouchState { Idle, CardStay, CardDrag, ModelStay, ModelDrag, Disable };
@@ -54,11 +52,18 @@ public class GameTouchMgr : Photon.PunBehaviour
         audioSource = GetComponent<AudioSource>();
         infoRend.enabled = false;
         cardBack = Resources.Load("CARDBACK") as Material;
+        decCtrl = GameObject.Find("DeckController").GetComponent<DeckController>();
+        turnButtonPhoton = GameObject.Find("TurnBtton").GetComponent<PhotonView>();
+        if (!gameObject.GetComponentInParent<PhotonView>().isMine) state = TouchState.Disable;
     }
 
     void Update()
     {
-        // cam = Camera.main;
+        if(PhotonNetwork.room.PlayerCount == 2)
+        {
+            cam = Camera.main;
+        }
+
         if (state == TouchState.Disable) return;
 
         if (state == TouchState.Idle)
@@ -276,56 +281,27 @@ public class GameTouchMgr : Photon.PunBehaviour
             {
                 int layer = hit.transform.gameObject.layer;
                 bool toMaximize = false;
+
                 if (layer == layerHandCanvas)
                 {
                     toMaximize = true;
                 }
-                if (layer == layerTurn)
+                else if (layer == layerTurn)
                 {
-                    deck = GameObject.Find("Deck");
-                    deck2 = GameObject.Find("Deck2");
-
-                    child = deck.GetComponentsInChildren<Transform>();
-                    child2 = deck.GetComponentsInChildren<Transform>();
-
-                    nowDeck = new Transform[child.Length];
-                    nowDeck2 = new Transform[child2.Length];
-
-                    int count = 0;
-                    for (int i = 0; i < child.Length; i++)
+                    Debug.Log(gameObject.name);
+                    if (gameObject.name == "GameTouchMgr1" && hit.transform.position.y > 13.0f && hit.transform.position.y < 14.0f)
                     {
-                        if (child[i].gameObject.layer == layerHandCard)
-                        {
-                            nowDeck[count] = child[i];
-                            count++;
-                        }
+                        turnButtonPhoton.photonView.RPC("TurnMove", PhotonTargets.All,
+                            new Vector3(hit.transform.position.x, hit.transform.position.y + 1, hit.transform.position.z));
+                        DrawCard("Deck");
                     }
-
-                    count = 0;
-                    for (int i = 0; i < child2.Length; i++)
+                    else if (gameObject.name == "GameTouchMgr2" && hit.transform.position.y > 14.0f)
                     {
-                        if (child2[i].gameObject.layer == layerHandCard)
-                        {
-                            nowDeck2[count] = child2[i];
-                            count++;
-                        }
+                        turnButtonPhoton.photonView.RPC("TurnMove", PhotonTargets.All,
+                               new Vector3(hit.transform.position.x, hit.transform.position.y - 1, hit.transform.position.z));
+                        DrawCard("Deck2");
                     }
-
-                    if (gameObject.name == "GameTouchMgr1")
-                    {
-                        decCtrl.CardSet1(nowDeck[0].gameObject.transform);
-                    }
-                    else if (gameObject.name == "GameTouchMgr2")
-                    {
-                        decCtrl.CardSet2(nowDeck2[0].gameObject.transform);
-                    }
-
-                    //if (turnChange)
-                    //{
-                    //    decCtrl.CardSet1(nowDeck[0].gameObject.transform);
-                    //    turnChange = false;
-                    //    clickEventTurn.turnChange = true;
-                    //}
+                    return;
                 }
                 float nowScale = myHandCanvas.transform.localScale.x;
                 float scale = toMaximize ? 1 : 0.5f;
@@ -348,6 +324,32 @@ public class GameTouchMgr : Photon.PunBehaviour
             {
                 MinimizeHand();
             }
+        }
+    }
+
+    private void DrawCard(string whatDeck)
+    {
+        Debug.Log("DrawCard call");
+        deck = GameObject.Find(whatDeck);
+        child = deck.GetComponentsInChildren<Transform>();
+        nowDeck = new Transform[child.Length];
+        int count = 0;
+        for (int i = 0; i < child.Length; i++)
+        {
+            if (child[i].gameObject.layer == layerHandCard)
+            {
+                nowDeck[count] = child[i];
+                count++;
+            }
+        }
+
+        if (whatDeck == "Deck")
+        {
+            decCtrl.CardSet2(nowDeck[0].gameObject);
+        }
+        else
+        {
+            decCtrl.CardSet1(nowDeck[0].gameObject);
         }
     }
 
