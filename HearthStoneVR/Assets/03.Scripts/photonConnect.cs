@@ -79,7 +79,7 @@ public class photonConnect : Photon.PunBehaviour
             Player = PhotonNetwork.Instantiate(
             "OVRCameraRig", new Vector3(0, 32.3f, -18.44f), Quaternion.Euler(30, 0, 0), 0);
             PlayerModel = PhotonNetwork.Instantiate(
-            "Player2", new Vector3(7.8809e-06f, 0, -17), Quaternion.Euler(0, 0, 0), 0);
+            "Player1", new Vector3(0, 0, 22.1f), Quaternion.Euler(0, 180, 0), 0);
             PlayerCtrl = PhotonNetwork.Instantiate(
             "Player1Ctrl", new Vector3(0, 0, 0), Quaternion.identity, 0);
         }
@@ -89,7 +89,7 @@ public class photonConnect : Photon.PunBehaviour
             Player = PhotonNetwork.Instantiate(
             "OVRCameraRig2", new Vector3(0, 32.3f, 24.93f), Quaternion.Euler(27, 180, 0), 0);
             PlayerModel = PhotonNetwork.Instantiate(
-            "Player1", new Vector3(0, 0, 22.1f), Quaternion.Euler(0, 180, 0), 0);
+            "Player2", new Vector3(7.8809e-06f, 0, -17), Quaternion.Euler(0, 0, 0), 0);
             PlayerCtrl = PhotonNetwork.Instantiate(
             "Player2Ctrl", new Vector3(0, 0, 0), Quaternion.identity, 0);
         }
