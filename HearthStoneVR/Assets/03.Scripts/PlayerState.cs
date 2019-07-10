@@ -10,7 +10,7 @@ public class PlayerState : Photon.PunBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!photonView.isMine)
+        if (photonView.isMine)
         {
             gameObject.SetActive(false);
         }
