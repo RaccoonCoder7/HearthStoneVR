@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 125048279617512849}
   - component: {fileID: 8222458840590122307}
   - component: {fileID: 8154782731129652980}
+  - component: {fileID: 4717430440094523395}
   m_Layer: 10
   m_Name: FIELD_BEE
   m_TagString: BEE
@@ -66,7 +67,7 @@ RectTransform:
   m_Children:
   - {fileID: 2959591685495984121}
   - {fileID: 7181334900350581739}
-  - {fileID: 2646506408789173229}
+  - {fileID: 5265953974159928458}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -252,6 +253,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4717430440094523395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2959591686142157165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 8222458840590122307}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!65 &5366996574477105911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -386,7 +414,7 @@ PrefabInstance:
         type: 3}
       propertyPath: txt
       value: 
-      objectReference: {fileID: 2646506408789173217}
+      objectReference: {fileID: 1078995344317485954}
     - target: {fileID: 6233157441258491723, guid: 56e9d00faac625544aae449fc1490054,
         type: 3}
       propertyPath: enemy
@@ -416,21 +444,39 @@ PrefabInstance:
         type: 3}
       propertyPath: txt1
       value: 
-      objectReference: {fileID: 2646506408789173210}
+      objectReference: {fileID: 9040353984883688860}
+    - target: {fileID: 6254098031410909839, guid: 56e9d00faac625544aae449fc1490054,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 8231128925030837425}
     - target: {fileID: 3121912954646484165, guid: 56e9d00faac625544aae449fc1490054,
         type: 3}
       propertyPath: m_Name
       value: HP
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8429165572348463551, guid: 56e9d00faac625544aae449fc1490054, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 56e9d00faac625544aae449fc1490054, type: 3}
---- !u!224 &2646506408789173229 stripped
+--- !u!224 &5265953974159928458 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7903301347975860080, guid: 56e9d00faac625544aae449fc1490054,
     type: 3}
   m_PrefabInstance: {fileID: 2646506408789173242}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2646506408789173210 stripped
+--- !u!114 &8231128925030837425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6233157441258491723, guid: 56e9d00faac625544aae449fc1490054,
+    type: 3}
+  m_PrefabInstance: {fileID: 2646506408789173242}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b028b4459a3cd4b9e178e3a94e0a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9040353984883688860 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6471546786546443878, guid: 56e9d00faac625544aae449fc1490054,
     type: 3}
@@ -442,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2646506408789173217 stripped
+--- !u!114 &1078995344317485954 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3045307468771258488, guid: 56e9d00faac625544aae449fc1490054,
     type: 3}

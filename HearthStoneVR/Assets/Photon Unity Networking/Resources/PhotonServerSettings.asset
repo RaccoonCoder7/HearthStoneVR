@@ -49,4 +49,6 @@ MonoBehaviour:
   - CreateDragCard
   - TurnMove
   - CardMove
+  - CardInstantiate
+  - SetHealth
   DisableAutoOpenWizard: 1

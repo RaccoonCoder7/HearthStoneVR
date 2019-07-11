@@ -5,6 +5,7 @@ using UnityEngine;
 public class CardPosition : Photon.MonoBehaviour, IPunObservable
 {
     private Transform handCards;
+
     [PunRPC]
     void CardMove(Vector3 pos, Quaternion rot, bool whoDeck)
     {

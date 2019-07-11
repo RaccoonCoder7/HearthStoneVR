@@ -32,6 +32,12 @@ public class GameTouchMgr : Photon.PunBehaviour
     private GameObject deck;
     private PhotonView turnButtonPhoton;
 
+    public Transform hitObject;
+    private PhotonView cardMovePhoton;
+    public CardSommon cardSommon;
+
+    private PhotonView monsterStatePhoton;
+
 
     enum TouchState { Idle, CardStay, CardDrag, ModelStay, ModelDrag, Disable };
     TouchState state = TouchState.Idle;
@@ -61,7 +67,7 @@ public class GameTouchMgr : Photon.PunBehaviour
 
     void Update()
     {
-        if(PhotonNetwork.room.PlayerCount == 2)
+        if (PhotonNetwork.room.PlayerCount == 2)
         {
             cam = Camera.main;
         }
@@ -118,14 +124,23 @@ public class GameTouchMgr : Photon.PunBehaviour
                 {
                     string tag = nowDragging.tag;
                     // GameObject sommonCard = Resources.Load("FIELD_" + tag) as GameObject;
-                    GameObject sommonedCard = Instantiate(Resources.Load("FIELD_" + tag) as GameObject,
-                                             hit.transform.position, hit.transform.rotation, hit.transform);
+
+                    hitObject = hit.transform;
+                    cardMovePhoton = hit.transform.GetComponent<PhotonView>();
+                    cardSommon = hit.transform.GetComponent<CardSommon>();
+
+                    cardMovePhoton.photonView.RPC("CardInstantiate", PhotonTargets.All,
+                            hit.transform.position, hit.transform.rotation, tag, gameObject.name);
+
                     Destroy(nowDragging);
                     MaximizeHand();
                     state = TouchState.Idle;
                     infoRend.enabled = false;
                     //TODO: 턴 종료시 포문으로 canAttack바꾸기
-                    sommonedCards.Add(sommonedCard);
+                    sommonedCards.Add(cardSommon.sommonedCard);
+
+                    //cardMovePhoton.photonView.RPC("CardSommonMove", PhotonTargets.All,
+                    //        cardSommon.sommonedCard.transform.position, cardSommon.sommonedCard.transform.rotation, gameObject.name);
                 }
             }
             infoRend.enabled = false;
@@ -385,7 +400,18 @@ public class GameTouchMgr : Photon.PunBehaviour
         Transform enemyHPState = enemyCardState.transform.GetChild(2);
         Debug.Log(myCardState.HP);
         Debug.Log(enemyCardState.HP);
-        myHPState.SendMessage("SetHealth", myCardState.HP);
-        enemyHPState.SendMessage("SetHealth", enemyCardState.HP);
+
+        monsterStatePhoton = myCardState.transform.GetChild(2).GetComponent<PhotonView>();
+
+        monsterStatePhoton.RPC("SetHealth", PhotonTargets.All, myCardState.HP + 0.0f);
+        Debug.Log(myCardState.transform.GetChild(2).name + "            ssssssssssssmyCardState name");
+
+        monsterStatePhoton = enemyCardState.transform.GetChild(2).GetComponent<PhotonView>();
+        monsterStatePhoton.RPC("SetHealth", PhotonTargets.All, enemyCardState.HP + 0.0f);
+        Debug.Log(enemyCardState.transform.GetChild(2).transform.name + "            ssssssssssssenemyCardState name");
+
+
+        //myHPState.SendMessage("SetHealth", myCardState.HP);
+        //enemyHPState.SendMessage("SetHealth", enemyCardState.HP);
     }
 }

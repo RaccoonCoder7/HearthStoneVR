@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MonsterState : Photon.PunBehaviour
+public class MonsterState : Photon.MonoBehaviour, IPunObservable
 {
-
     public Text txt;
     public Text txt1;
     public GameObject enemy;
@@ -20,7 +19,7 @@ public class MonsterState : Photon.PunBehaviour
         txt1.text = attackTxt;
         if (photonView.isMine)
         {
-            
+
             gameObject.transform.Rotate(new Vector3(0, 0, -90));
         }
         else
@@ -30,7 +29,8 @@ public class MonsterState : Photon.PunBehaviour
     }
 
     // Update is called once per frame
-    void SetHealth(float point)
+    [PunRPC]
+    public void SetHealth(float point)
     {
         if (point <= 0)
         {
@@ -41,17 +41,31 @@ public class MonsterState : Photon.PunBehaviour
         {
             txt.text = point.ToString();
         }
-        
+
     }
 
     IEnumerator EnemyDeath()
     {
         yield return new WaitForSeconds(1);
         for (int i = 0; i < 30; i++)
-        { 
+        {
             enemy.transform.position += new Vector3(0, -0.1f, 0);
-        yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.05f);
         }
         Destroy(enemy);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+        }
+        else
+        {
+            transform.position = (Vector3)stream.ReceiveNext();
+            transform.rotation = (Quaternion)stream.ReceiveNext();
+        }
     }
 }

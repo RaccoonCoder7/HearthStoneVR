@@ -13,6 +13,7 @@ public class DeckController : Photon.PunBehaviour
     private bool isCreate = false;
     public bool isMyTurn = false;
     private PhotonView cardMovePhoton;
+    public int count = 9999;
 
     private void Update()
     {
