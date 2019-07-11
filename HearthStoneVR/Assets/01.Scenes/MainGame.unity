@@ -860,6 +860,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArrowRenderer
       objectReference: {fileID: 0}
+    - target: {fileID: 1473060366742988, guid: 72b455a4f0312df468f95f6b5d3715b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4290973454889156, guid: 72b455a4f0312df468f95f6b5d3715b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

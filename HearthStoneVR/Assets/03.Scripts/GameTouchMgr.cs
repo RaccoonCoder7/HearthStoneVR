@@ -36,6 +36,8 @@ public class GameTouchMgr : Photon.PunBehaviour
     enum TouchState { Idle, CardStay, CardDrag, ModelStay, ModelDrag, Disable };
     TouchState state = TouchState.Idle;
 
+    
+
     void Start()
     {
         layerHandCard = LayerMask.NameToLayer("HANDCARD");

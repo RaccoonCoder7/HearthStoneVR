@@ -69,9 +69,9 @@ public class ArrowRenderer : MonoBehaviour
 			if (!rend)
 				continue;
 
-			Color color = rend.material.GetColor("_Color");
+			Color color = rend.material.GetColor("_TintColor");
 			color.a = GetAlpha(pos.z - left.z, right.z - fadeDistance - pos.z, fadeStartDistance);
-			rend.material.SetColor("_Color", color);
+			rend.material.SetColor("_TintColor", color);
 		}
 
 		if (!arrow)

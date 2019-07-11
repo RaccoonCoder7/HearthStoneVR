@@ -21,18 +21,25 @@ public class DeckController : Photon.PunBehaviour
 
     public void Initite()
     {
-        if (!isCreate && PhotonNetwork.room.PlayerCount == 2)
+        try
         {
-            isCreate = true;
-            handCards1 = GameObject.Find("HandCanvas/HandCards").GetComponent<Transform>();
-            handCards2 = GameObject.Find("HandCanvas2/HandCards").GetComponent<Transform>();
-            //ShuffleArray(ShuffleDeck1);
-            //ShuffleArray(ShuffleDeck2);
-            for (int i = 1; i < 6; ++i)
+            if (!isCreate && PhotonNetwork.room.PlayerCount == 2)
             {
-                CardSet1(ShuffleDeck1[i].gameObject);
-                CardSet2(ShuffleDeck2[i].gameObject);
+                isCreate = true;
+                handCards1 = GameObject.Find("HandCanvas/HandCards").GetComponent<Transform>();
+                handCards2 = GameObject.Find("HandCanvas2/HandCards").GetComponent<Transform>();
+                //ShuffleArray(ShuffleDeck1);
+                //ShuffleArray(ShuffleDeck2);
+                for (int i = 1; i < 6; ++i)
+                {
+                    CardSet1(ShuffleDeck1[i].gameObject);
+                    CardSet2(ShuffleDeck2[i].gameObject);
+                }
             }
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log("not exist HandCanvas2/HandCards : " + e);
         }
     }
 

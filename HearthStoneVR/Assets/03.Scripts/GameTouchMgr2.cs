@@ -27,7 +27,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
 
     public GameObject myHandCanvas;
     public GameObject InfoCard;
-    // public ArrowRenderer arrowRenderer;
+    public ArrowRenderer arrowRenderer;
 
     private Transform[] nowDeck;
     private DeckController decCtrl;
@@ -39,6 +39,11 @@ public class GameTouchMgr2 : Photon.PunBehaviour
     enum TouchState { Idle, CardStay, CardDrag, ModelStay, ModelDrag, Disable };
     TouchState state = TouchState.Idle;
 
+    private void Awake()
+    {
+        infoRend = InfoCard.GetComponent<Renderer>();
+        infoRend.enabled = false;
+    }
     void Start()
     {
         tr = GetComponent<Transform>();
@@ -105,7 +110,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
     private void OnDragCard()
     {
         // ray = new Ray(tr.position, tr.forward);
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
         {
             if (!audioSource.isPlaying)
             {
@@ -114,14 +119,14 @@ public class GameTouchMgr2 : Photon.PunBehaviour
             Debug.DrawRay(ray.origin, ray.direction * Mathf.Infinity, Color.green);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                // arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
+                 arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
             }
         }
 
         if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
         {
             audioSource.Stop();
-            // arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
+             arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 int layer = hit.transform.gameObject.layer;
@@ -152,13 +157,13 @@ public class GameTouchMgr2 : Photon.PunBehaviour
             Debug.DrawRay(ray.origin, ray.direction * Mathf.Infinity, Color.green);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                // arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
+                 arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
             }
         }
 
         if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
         {
-            // arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
+             arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 int layer = hit.transform.gameObject.layer;
@@ -182,17 +187,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
                     myCardState.doAttack(enemyCardState.transform.position);
                     enemyCardState.HP -= myCardState.Attack;
                     myCardState.HP -= enemyCardState.Attack;
-
-                    GameObject myDamage = Instantiate(Resources.Load("DamageCanvas") as GameObject, nowDragging.transform.position + new Vector3(0, 10, 0), Quaternion.Euler(0, 90, 0), nowDragging.transform);
-                    myDamage.SendMessage("SetDamage", myCardState.Attack);
-                    Transform myHPState = nowDragging.transform.GetChild(2);
-
-
-                    GameObject enemyDamage = Instantiate(Resources.Load("DamageCanvas") as GameObject, enemyCardState.transform.position + new Vector3(0, 10, 0), Quaternion.Euler(0, 90, 0));
-                    enemyDamage.SendMessage("SetDamage", myCardState.Attack);
-                    Transform enemyHPState = enemyCardState.transform.GetChild(2);
-                    myHPState.SendMessage("SetHealth", myCardState.HP);
-                    enemyHPState.SendMessage("SetHealth", enemyCardState.HP);
+                    StartCoroutine(EnemyAttack(myCardState, enemyCardState));
                     //TODO: UI변경, 하수인죽기, 애니메이션
 
                     state = TouchState.Idle;
@@ -236,6 +231,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
                 //     return;
                 // }
                 // 가능할 시,
+                Debug.Log("minimize1");
                 MinimizeHand();
                 state = TouchState.CardDrag;
                 return;
@@ -274,6 +270,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
                     }
                     state = TouchState.ModelStay;
                     nowLayer = layerFieldCard;
+                    Debug.Log("minimize2");
                     MinimizeHand();
                     SetInfoPanelMaterial();
                 }
@@ -325,6 +322,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
                     myHandCanvas.transform.localScale = Vector3.one * scale;
                     if (boxCol.enabled)
                     {
+                        Debug.Log("minimize3");
                         myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(15, 0, -3.2f);
                     }
                     else
@@ -335,6 +333,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
             }
             else
             {
+                Debug.Log("minimize4");
                 MinimizeHand();
             }
         }
@@ -391,5 +390,21 @@ public class GameTouchMgr2 : Photon.PunBehaviour
             myHandCanvas.transform.localScale = Vector3.one;
             myHandCanvas.transform.position = myHandCanvas.transform.position + new Vector3(-15, 0, 3.2f);
         }
+    }
+
+    IEnumerator EnemyAttack(CardState myCardState, CardState enemyCardState)
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        GameObject myDamage = Instantiate(Resources.Load("DamageCanvas") as GameObject, nowDragging.transform.position + new Vector3(0, 10, 0), Quaternion.Euler(0, 90, 0), nowDragging.transform);
+        myDamage.SendMessage("SetDamage", myCardState.Attack);
+        Transform myHPState = nowDragging.transform.GetChild(2);
+        GameObject enemyDamage = Instantiate(Resources.Load("DamageCanvas") as GameObject, enemyCardState.transform.position + new Vector3(0, 10, 0), Quaternion.Euler(0, 90, 0));
+        enemyDamage.SendMessage("SetDamage", myCardState.Attack);
+        Transform enemyHPState = enemyCardState.transform.GetChild(2);
+        Debug.Log(myCardState.HP);
+        Debug.Log(enemyCardState.HP);
+        myHPState.SendMessage("SetHealth", myCardState.HP);
+        enemyHPState.SendMessage("SetHealth", enemyCardState.HP);
     }
 }

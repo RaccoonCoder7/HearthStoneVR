@@ -7,6 +7,7 @@ public class MonsterState : Photon.PunBehaviour
 {
 
     public Text txt;
+    public Text txt1;
     public GameObject enemy;
     public Image img;
     public string HPTxt;
@@ -16,6 +17,7 @@ public class MonsterState : Photon.PunBehaviour
     void Start()
     {
         txt.text = HPTxt;
+        txt1.text = attackTxt;
         if (photonView.isMine)
         {
             
