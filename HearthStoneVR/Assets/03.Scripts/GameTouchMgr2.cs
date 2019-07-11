@@ -71,7 +71,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
         }
 
         ray = new Ray(tr.position, tr.forward);
-        if (Physics.Raycast(ray, out hit, 16.0f))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             float dist = hit.distance;
             line.SetPosition(1, new Vector3(0, 0, dist));
@@ -111,8 +111,8 @@ public class GameTouchMgr2 : Photon.PunBehaviour
             {
                 audioSource.Play();
             }
-            Debug.DrawRay(ray.origin, ray.direction * 50.0f, Color.green);
-            if (Physics.Raycast(ray, out hit, 50.0f))
+            Debug.DrawRay(ray.origin, ray.direction * Mathf.Infinity, Color.green);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
             }
@@ -122,7 +122,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
         {
             audioSource.Stop();
             arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
-            if (Physics.Raycast(ray, out hit, 50.0f))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 int layer = hit.transform.gameObject.layer;
                 if (layer == layerField)
@@ -149,8 +149,8 @@ public class GameTouchMgr2 : Photon.PunBehaviour
         // ray = new Ray(tr.position, tr.forward);
         if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
         {
-            Debug.DrawRay(ray.origin, ray.direction * 50.0f, Color.green);
-            if (Physics.Raycast(ray, out hit, 50.0f))
+            Debug.DrawRay(ray.origin, ray.direction * Mathf.Infinity, Color.green);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
             }
@@ -159,7 +159,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
         if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
         {
             arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
-            if (Physics.Raycast(ray, out hit, 50.0f))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 int layer = hit.transform.gameObject.layer;
                 if (layer == layerFieldCard)
@@ -227,7 +227,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
             return;
         }
         // ray = new Ray(tr.position, tr.forward);
-        if (!Physics.Raycast(ray, out hit, 50.0f, 1 << nowLayer))
+        if (!Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << nowLayer))
         {
             if (state == TouchState.CardStay)
             {
@@ -259,7 +259,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
         if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             // ray = new Ray(tr.position, tr.forward);
-            if (Physics.Raycast(ray, out hit, 50.0f))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 int layer = hit.transform.gameObject.layer;
                 if (layer == layerFieldCard)
@@ -290,7 +290,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
         if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
         {
             // ray = new Ray(tr.position, tr.forward);
-            if (Physics.Raycast(ray, out hit, 50.0f))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 int layer = hit.transform.gameObject.layer;
                 bool toMaximize = false;

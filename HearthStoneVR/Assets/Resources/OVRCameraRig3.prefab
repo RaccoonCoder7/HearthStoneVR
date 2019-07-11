@@ -677,6 +677,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1915434547825499722}
     m_Modifications:
+    - target: {fileID: 112276, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 3}
+      propertyPath: m_Name
+      value: OVRControllerPrefab
+      objectReference: {fileID: 0}
     - target: {fileID: 488160, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -721,14 +725,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 112276, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 3}
-      propertyPath: m_Name
-      value: OVRControllerPrefab
-      objectReference: {fileID: 0}
     - target: {fileID: 3166452405494071231, guid: d9809c5e8418bb047bf2c8ba1d1a2cec,
         type: 3}
       propertyPath: m_Positions.Array.data[1].z
-      value: 50
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3513947566348208046, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 3}
