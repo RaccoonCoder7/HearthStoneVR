@@ -27,7 +27,7 @@ public class GameTouchMgr2 : Photon.PunBehaviour
 
     public GameObject myHandCanvas;
     public GameObject InfoCard;
-    public ArrowRenderer arrowRenderer;
+    // public ArrowRenderer arrowRenderer;
 
     private Transform[] nowDeck;
     private DeckController decCtrl;
@@ -114,14 +114,14 @@ public class GameTouchMgr2 : Photon.PunBehaviour
             Debug.DrawRay(ray.origin, ray.direction * Mathf.Infinity, Color.green);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
+                // arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
             }
         }
 
         if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
         {
             audioSource.Stop();
-            arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
+            // arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 int layer = hit.transform.gameObject.layer;
@@ -152,13 +152,13 @@ public class GameTouchMgr2 : Photon.PunBehaviour
             Debug.DrawRay(ray.origin, ray.direction * Mathf.Infinity, Color.green);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
+                // arrowRenderer.SetPositions(nowDragging.transform.position, hit.point);
             }
         }
 
         if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
         {
-            arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
+            // arrowRenderer.SetPositions(new Vector3(0, -10, 0), new Vector3(0, -10, 0));
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 int layer = hit.transform.gameObject.layer;

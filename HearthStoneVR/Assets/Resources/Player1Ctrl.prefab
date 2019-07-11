@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArrowRenderer
       objectReference: {fileID: 0}
+    - target: {fileID: 1473060366742988, guid: 72b455a4f0312df468f95f6b5d3715b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4290973454889156, guid: 72b455a4f0312df468f95f6b5d3715b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -369,6 +373,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9023690421440650547}
     m_Modifications:
+    - target: {fileID: 482378067852936915, guid: 0cb68a6e04d9a184bbf9795c7b5b8297,
+        type: 3}
+      propertyPath: m_Name
+      value: FieldCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 482378067852936927, guid: 0cb68a6e04d9a184bbf9795c7b5b8297,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -473,11 +482,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 482378067852936915, guid: 0cb68a6e04d9a184bbf9795c7b5b8297,
-        type: 3}
-      propertyPath: m_Name
-      value: FieldCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 482378067852936913, guid: 0cb68a6e04d9a184bbf9795c7b5b8297,
         type: 3}
@@ -840,6 +844,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9023690421440650547}
     m_Modifications:
+    - target: {fileID: 1174195661351453939, guid: 0ae04774227873447bc140c13f18bdd2,
+        type: 3}
+      propertyPath: m_Name
+      value: InfoCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 1174195661351453943, guid: 0ae04774227873447bc140c13f18bdd2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -945,11 +954,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1174195661351453939, guid: 0ae04774227873447bc140c13f18bdd2,
-        type: 3}
-      propertyPath: m_Name
-      value: InfoCanvas
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ae04774227873447bc140c13f18bdd2, type: 3}
 --- !u!224 &5076594756889231400 stripped
@@ -971,6 +975,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9023690421440650547}
     m_Modifications:
+    - target: {fileID: 5328609844746709429, guid: 815e7375ee5574f43a522f3c3d0c1405,
+        type: 3}
+      propertyPath: m_Name
+      value: HPCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 5328609844746709386, guid: 815e7375ee5574f43a522f3c3d0c1405,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1075,11 +1084,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5328609844746709429, guid: 815e7375ee5574f43a522f3c3d0c1405,
-        type: 3}
-      propertyPath: m_Name
-      value: HPCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 815e7375ee5574f43a522f3c3d0c1405, type: 3}
