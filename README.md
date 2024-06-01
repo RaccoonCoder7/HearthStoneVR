@@ -11,6 +11,7 @@ Photon을 이용한 멀티플레이를 숙달하기 위하여 하스스톤을 �
 - 개발기간: 2020.11.05 - 2021.03.07
 - 사용기술: Unity, C#, OVR(Oculus Quest 2), Photon
 - 참여자: RaccoonCoder7, LEEBYUNGNAM, smpk32
+- 담당: Photon 네트워킹, 카드 제작, FSM 제작, 애니메이션 제작
 
 </br>
 
